@@ -1,7 +1,7 @@
 <title>AstraLabs Web Kit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap">
 <style>
 /* Layout: a component kit as hairline-ruled sheets under a sticky lockup bar. Square by default; the 60° cut is reserved for the filled primary action and the destructive dialog. Line markers (end ticks, leaders, thresholds, rulers) and masked dot grids carry the detail. Dark-only by design. */
 :root {
@@ -11,7 +11,7 @@
   --acid: #b6ff2e; --acid-hi: #ccff6b; --on-acid: #0a0909;
   --ok: #4dff88; --warn: #ffa21f; --down: #ff2e3a;
   --dot: color-mix(in oklab, var(--bone) 22%, transparent);
-  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-display: "Chakra Petch", system-ui, sans-serif;
   --font-mono: "Martian Mono", ui-monospace, Menlo, monospace;
   --cut: 9px;
   /* motion: four speeds */
@@ -92,12 +92,12 @@ a { color: var(--bone); text-decoration-color: var(--acid); text-underline-offse
 
 .wrap { max-width: 1280px; margin: 0 auto; padding-inline: var(--gutter); padding-block: 40px 120px; display: grid; gap: 88px; }
 .intro { display: grid; gap: 16px; }
-.intro h1 { font: 900 clamp(38px, 6vw, 72px)/.9 var(--font-display); font-variation-settings: "wdth" 118; text-transform: uppercase; letter-spacing: -.01em; color: var(--mark); }
+.intro h1 { font: 700 clamp(38px, 6vw, 72px)/.9 var(--font-display); text-transform: uppercase; letter-spacing: -.01em; color: var(--mark); }
 .intro p { color: var(--ash); font-size: 16px; }
 .intro strong { color: var(--bone); font-weight: 600; }
 .sec-head { display: grid; gap: 10px; margin-bottom: 22px; }
 .sec-head .t { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; }
-.sec-head h2 { font: 800 22px/1.15 var(--font-display); font-variation-settings: "wdth" 110; text-transform: uppercase; letter-spacing: .02em; }
+.sec-head h2 { font: 700 22px/1.15 var(--font-display); text-transform: uppercase; letter-spacing: .02em; }
 .sheet { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
 .cell { grid-column: span 4; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px; display: grid; gap: 14px; align-content: start; min-width: 0; }
 .cell.s3 { grid-column: span 3; } .cell.s5 { grid-column: span 5; } .cell.s6 { grid-column: span 6; } .cell.s7 { grid-column: span 7; } .cell.s8 { grid-column: span 8; } .cell.s12 { grid-column: span 12; }
@@ -226,6 +226,33 @@ table.tbl { width: 100%; border-collapse: collapse; font: 400 12px/1.4 var(--fon
 .chip[aria-pressed="true"] { border-color: var(--acid); color: var(--bone); }
 .chip span { color: var(--acid); margin-left: 4px; }
 /* meter: hairline track, fill, threshold marker, scale */
+/* line work: static SVG drawn on the brand's 0 / 60 / 90 degree geometry */
+.lw-fig svg { display: block; width: 100%; height: auto; }
+.lw-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.lw-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.lw-t { display: inline-block; width: 10px; height: 10px; flex-shrink: 0; }
+.lw-t.ring { border: 1px solid var(--bone); border-radius: 50%; }
+.lw-t.sq { width: 10px; height: 8px; background: var(--bone); }
+.lw-t.tri { background: var(--bone); clip-path: polygon(50% 0, 100% 100%, 0 100%); height: 9px; }
+.lw-t.node { width: 5px; height: 5px; background: var(--bone); border-radius: 50%; }
+.lw-meter { display: grid; gap: 6px; }
+.lw-meter .top { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.lw-meter .mono { font-size: 11px; }
+.lw-meter svg { display: block; width: 100%; height: auto; }
+.lw-scale { display: flex; justify-content: space-between; }
+.lw-tagrow { display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: center; }
+.lw-tagrow .leaders { flex: 1 1 260px; min-width: 0; }
+.lw-tag { display: grid; gap: 10px; width: 100%; max-width: 320px; padding: 12px 14px 10px; background: var(--void); border: 1px solid var(--rule); }
+.lw-tag-head { font: 500 10.5px/1.3 var(--font-mono); font-variation-settings: "wdth" 85; letter-spacing: .14em; text-transform: uppercase; color: var(--ash); }
+.lw-tag-lock { display: block; width: 100%; height: auto; }
+.lw-tag-code { display: block; width: 100%; height: 44px; background: var(--bone); }
+.lw-tag-code path { fill: var(--void); }
+.lw-tag-id { font: 400 10.5px/1 var(--font-mono); font-variation-settings: "wdth" 85; font-variant-numeric: tabular-nums; letter-spacing: .24em; color: var(--bone); text-align: center; }
+.lw-empty { position: relative; }
+.lw-empty svg { display: block; width: 100%; height: auto; }
+.lw-empty-t { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 6px; text-align: center; }
+.lw-empty-t strong { font: 700 16px/1.2 var(--font-display); color: var(--mark); background: var(--void); padding: 4px 10px; }
+.lw-empty-t .mono { font-size: 11px; color: var(--ash); background: var(--void); padding: 2px 8px; }
 .meter { display: grid; gap: 6px; }
 .meter .top { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
 .meter .track { position: relative; height: 12px; }
@@ -301,7 +328,7 @@ table.tbl { width: 100%; border-collapse: collapse; font: 400 12px/1.4 var(--fon
 .modal > .in { background: var(--plate); clip-path: polygon(0 0, calc(100% - var(--c) + .42px) 0, 100% calc(var(--c) * 1.732 - 1.23px), 100% 100%, 0 100%); display: grid; }
 .modal .hazard { height: 12px; background: repeating-linear-gradient(120deg, var(--down) 0 7px, transparent 7px 14px); }
 .modal .body { padding: 20px; display: grid; gap: 14px; }
-.modal h3 { font: 800 20px/1.15 var(--font-display); font-variation-settings: "wdth" 108; }
+.modal h3 { font: 700 20px/1.15 var(--font-display); }
 .modal p { color: var(--ash); font-size: 14px; }
 .modal code { font-family: var(--font-mono); color: var(--bone); background: var(--void); padding: 1px 5px; border: 1px solid var(--rule); }
 .modal .actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
@@ -362,7 +389,7 @@ table.tbl { width: 100%; border-collapse: collapse; font: 400 12px/1.4 var(--fon
 .side a .n { font-size: 10px; color: var(--ash); }
 .shell-main { padding: 20px; display: grid; gap: 18px; align-content: start; min-width: 0; position: relative; }
 .page-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 14px; }
-.page-head h3 { font: 800 30px/1 var(--font-display); font-variation-settings: "wdth" 108; color: var(--mark); margin-top: 6px; }
+.page-head h3 { font: 700 30px/1 var(--font-display); color: var(--mark); margin-top: 6px; }
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 
 /* ---------- login ---------- */
@@ -377,7 +404,7 @@ table.tbl { width: 100%; border-collapse: collapse; font: 400 12px/1.4 var(--fon
 .reg::before { left: 50%; top: 0; width: 1px; height: 100%; } .reg::after { top: 50%; left: 0; height: 1px; width: 100%; }
 .corner { position: absolute; font: 400 9.5px var(--font-mono); letter-spacing: .12em; color: var(--ash); text-transform: uppercase; }
 .login-form { display: grid; align-content: center; padding: 40px clamp(20px, 4vw, 56px); gap: 22px; background: var(--void); }
-.login-form h3 { font: 800 28px/1.05 var(--font-display); font-variation-settings: "wdth" 108; color: var(--mark); }
+.login-form h3 { font: 700 28px/1.05 var(--font-display); color: var(--mark); }
 .login-form .host { font: 400 11.5px var(--font-mono); color: var(--ash); }
 .login-form .host b { color: var(--acid); font-weight: 400; }
 .login-form form { display: grid; gap: 16px; }
@@ -511,7 +538,7 @@ table.tbl { width: 100%; border-collapse: collapse; font: 400 12px/1.4 var(--fon
   <div class="topbar-in">
     <a class="lock" href="#login" aria-label="AstraLabs"><svg class="mk" viewBox="0 0 600 519.62" aria-hidden="true"><use href="#mark"/></svg><span class="wm" aria-hidden="true"><span class="br lb">[</span><span class="in">ASTRA<i class="sl">/</i>LABS</span><span class="br rb">]</span></span></a>
     <nav class="jump" aria-label="Sections" id="jump">
-      <a href="#login">Login</a><a href="#terminal">Terminal</a><a href="#shell">App shell</a><a href="#actions">Actions</a><a href="#forms">Forms</a><a href="#data">Data</a><a href="#graphs">Graphs</a><a href="#feedback">Feedback</a><a href="#nav">Navigation</a><a href="#pages">Pages</a>
+      <a href="#login">Login</a><a href="#terminal">Terminal</a><a href="#shell">App shell</a><a href="#actions">Actions</a><a href="#forms">Forms</a><a href="#data">Data</a><a href="#graphs">Graphs</a><a href="#linework">Line work</a><a href="#feedback">Feedback</a><a href="#nav">Navigation</a><a href="#pages">Pages</a>
     </nav>
     <button class="btn btn-quiet btn-sm" id="open-cmdk" type="button">Search <span class="kbd">Ctrl K</span></button>
   </div>
@@ -808,7 +835,7 @@ UPLOAD_LOCATION=/mnt/pool-a/photos</textarea><span class="hint">One KEY=value pe
       <div class="cell s4 chart-card" data-chart="rps">
         <div class="ch-head"><h3>Requests per second · caddy</h3><div class="acts"><span class="ch-live">Live · 1s</span><button class="mini-btn" type="button" data-pause>Pause</button><button class="mini-btn" type="button" data-table aria-pressed="false">Table</button></div></div>
         <div class="chart" id="c-rps"></div><div class="ch-table" hidden></div>
-        <span class="ch-note">Peak in window labelled.</span>
+        <span class="ch-note">Peak in window labeled.</span>
       </div>
       <div class="cell s12 chart-card" data-chart="net">
         <div class="ch-head"><h3>Network · wg0</h3><div class="acts"><span class="ch-live">Live · 1s</span><button class="mini-btn" type="button" data-pause>Pause</button><button class="mini-btn" type="button" data-table aria-pressed="false">Table</button></div></div>
@@ -838,12 +865,71 @@ UPLOAD_LOCATION=/mnt/pool-a/photos</textarea><span class="hint">One KEY=value pe
     </div>
   </section>
 
+  <!-- linework:start -->
+  <!-- ===================== LINE WORK ===================== -->
+  <section id="linework" data-reveal>
+    <div class="sec-head"><div class="t"><h2>Line work</h2><span class="label">Topology · ramp meters · tick gauge · uptime · empty state · asset tag</span></div><div class="mrule"><i></i></div></div>
+    <div class="sheet">
+      <div class="cell s7">
+        <span class="label"><span><b>■</b> Topology</span><span>Routes turn at 60° only</span></span>
+        <div class="lw-fig"><svg role="img" aria-label="Topology: the router branches at 60 degrees to pi-03, node-01, the wg0 tunnel and node-02" viewBox="0 0 620 244" width="620" height="244"><path d="M48 196H140L200 92.1H500M140 196H500M200 92.1L230 40.1H500M280 196L310 144H500" fill="none" stroke="#ede6e1"/><circle cx="140" cy="196" r="3" fill="#ede6e1"/><circle cx="200" cy="92.1" r="3" fill="#ede6e1"/><circle cx="280" cy="196" r="3" fill="#ede6e1"/><polygon points="30,201 46,201 38,187.1" fill="#ede6e1"/><path d="M20 214.5h36" stroke="#b6ff2e"/><circle cx="506" cy="40.1" r="6" fill="none" stroke="#ede6e1"/><text x="524" y="38.1" font-size="12" fill="#ede6e1" font-family="'Martian Mono', ui-monospace, monospace">pi-03</text><text x="524" y="53.1" font-size="11" fill="#8e8380" font-family="'Martian Mono', ui-monospace, monospace">10.0.0.13</text><circle cx="506" cy="92.1" r="6" fill="none" stroke="#ede6e1"/><text x="524" y="90.1" font-size="12" fill="#ede6e1" font-family="'Martian Mono', ui-monospace, monospace">node-01</text><text x="524" y="105.1" font-size="11" fill="#8e8380" font-family="'Martian Mono', ui-monospace, monospace">10.0.0.11</text><rect x="500" y="139" width="12" height="10" fill="#ede6e1"/><text x="524" y="142" font-size="12" fill="#ede6e1" font-family="'Martian Mono', ui-monospace, monospace">wg0</text><text x="524" y="157" font-size="11" fill="#8e8380" font-family="'Martian Mono', ui-monospace, monospace">tunnel</text><circle cx="506" cy="196" r="6" fill="none" stroke="#ede6e1"/><text x="524" y="194" font-size="12" fill="#ede6e1" font-family="'Martian Mono', ui-monospace, monospace">node-02</text><text x="524" y="209" font-size="11" fill="#8e8380" font-family="'Martian Mono', ui-monospace, monospace">10.0.0.12</text><text x="20" y="234" font-size="11" fill="#8e8380" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="1.5">ROUTER</text></svg></div>
+        <div class="lw-legend label"><span><i class="lw-t ring"></i>Host</span><span><i class="lw-t sq"></i>Service</span><span><i class="lw-t tri"></i>Gateway</span><span><i class="lw-t node"></i>Branch</span></div>
+      </div>
+      <div class="cell s5">
+        <span class="label"><span><b>■</b> Ramp meters</span><span>▼ alert threshold</span></span>
+        <div class="lw-meter"><div class="top"><span class="label">pool-a</span><span class="mono">2.72 / 4.00 TB</span></div><svg aria-hidden="true" viewBox="0 0 300 32" width="300" height="32"><path d="M1 10h8v8h-8zM11 10h8v8h-8zM21 10h8v8h-8zM31 10h8v8h-8zM41 10h8v8h-8zM51 10h8v8h-8zM61 10h8v8h-8zM71 10h8v8h-8zM81 10h8v8h-8zM91 10h8v8h-8zM101 10h8v8h-8zM111 10h8v8h-8zM121 10h8v8h-8zM131 10h8v8h-8zM141 10h8v8h-8zM151 10h8v8h-8zM161 10h8v8h-8zM171 10h8v8h-8zM181 10h8v8h-8z" fill="#ede6e1"/><rect x="191" y="10" width="8" height="8" fill="#b6ff2e"/><path d="M201.75 10.75h6.5v6.5h-6.5zM212.5 11.5h5v5h-5zM223 12h4v4h-4zM233.5 12.5h3v3h-3zM243.75 12.75h2.5v2.5h-2.5zM254 13h2v2h-2zM264.25 13.25h1.5v1.5h-1.5z" fill="#ede6e1"/><path d="M255.5 7V21" stroke="#ede6e1"/><polygon points="251.5,0 259.5,0 255.5,6.9" fill="#ede6e1"/><path d="M0 26.5H300" stroke="#2c2a29"/><path d="M0.5 26v6M75.5 26v6M150.5 26v6M224.5 26v6M299.5 26v6" stroke="#8e8380"/></svg></div>
+        <div class="lw-meter"><div class="top"><span class="label">backup-b</span><span class="mono" style="color:var(--warn)">1.82 / 2.00 TB</span></div><svg aria-hidden="true" viewBox="0 0 300 32" width="300" height="32"><path d="M1 10h8v8h-8zM11 10h8v8h-8zM21 10h8v8h-8zM31 10h8v8h-8zM41 10h8v8h-8zM51 10h8v8h-8zM61 10h8v8h-8zM71 10h8v8h-8zM81 10h8v8h-8zM91 10h8v8h-8zM101 10h8v8h-8zM111 10h8v8h-8zM121 10h8v8h-8zM131 10h8v8h-8zM141 10h8v8h-8zM151 10h8v8h-8zM161 10h8v8h-8zM171 10h8v8h-8zM181 10h8v8h-8zM191 10h8v8h-8zM201 10h8v8h-8zM211 10h8v8h-8zM221 10h8v8h-8zM231 10h8v8h-8zM241 10h8v8h-8zM251 10h8v8h-8z" fill="#ede6e1"/><rect x="261" y="10" width="8" height="8" fill="#ffa21f"/><path d="M271.75 10.75h6.5v6.5h-6.5zM282.5 11.5h5v5h-5zM293 12h4v4h-4z" fill="#ede6e1"/><path d="M255.5 7V21" stroke="#ede6e1"/><polygon points="251.5,0 259.5,0 255.5,6.9" fill="#ede6e1"/><path d="M0 26.5H300" stroke="#2c2a29"/><path d="M0.5 26v6M75.5 26v6M150.5 26v6M224.5 26v6M299.5 26v6" stroke="#8e8380"/></svg></div>
+        <div class="lw-meter"><div class="top"><span class="label">scratch</span><span class="mono">110 / 500 GB</span></div><svg aria-hidden="true" viewBox="0 0 300 32" width="300" height="32"><path d="M1 10h8v8h-8zM11 10h8v8h-8zM21 10h8v8h-8zM31 10h8v8h-8zM41 10h8v8h-8zM51 10h8v8h-8z" fill="#ede6e1"/><rect x="61" y="10" width="8" height="8" fill="#b6ff2e"/><path d="M71.75 10.75h6.5v6.5h-6.5zM82.5 11.5h5v5h-5zM93 12h4v4h-4zM103.5 12.5h3v3h-3zM113.75 12.75h2.5v2.5h-2.5zM124 13h2v2h-2zM134.25 13.25h1.5v1.5h-1.5z" fill="#ede6e1"/><path d="M255.5 7V21" stroke="#ede6e1"/><polygon points="251.5,0 259.5,0 255.5,6.9" fill="#ede6e1"/><path d="M0 26.5H300" stroke="#2c2a29"/><path d="M0.5 26v6M75.5 26v6M150.5 26v6M224.5 26v6M299.5 26v6" stroke="#8e8380"/></svg></div>
+        <div class="lw-scale label"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+      </div>
+      <div class="cell">
+        <span class="label"><span><b>■</b> Tick gauge</span><span>node-02</span></span>
+        <div class="lw-fig" style="max-width:220px;justify-self:center"><svg role="img" aria-label="Tick gauge reading 72 percent" viewBox="0 0 200 200" width="200" height="200"><circle cx="100" cy="100" r="56" fill="none" stroke="#2c2a29"/><path d="M35 88.54L25.15 86.8M37.98 77.43L28.58 74.01M42.84 67L28.99 59M49.44 57.58L41.78 51.15M57.58 49.44L51.15 41.78M67 42.84L59 28.99M77.43 37.98L74.01 28.58M88.54 35L86.8 25.15" stroke="#2c2a29"/><path d="M111.46 35L113.2 25.15M122.57 37.98L125.99 28.58M133 42.84L141 28.99M142.42 49.44L148.85 41.78M150.56 57.58L158.22 51.15M157.16 67L171.01 59M162.02 77.43L171.42 74.01M165 88.54L174.85 86.8M165 111.46L174.85 113.2M162.02 122.57L171.42 125.99M157.16 133L171.01 141M150.56 142.42L158.22 148.85M142.42 150.56L148.85 158.22M133 157.16L141 171.01M122.57 162.02L125.99 171.42M111.46 165L113.2 174.85M88.54 165L86.8 174.85M77.43 162.02L74.01 171.42M67 157.16L59 171.01M57.58 150.56L51.15 158.22M49.44 142.42L41.78 148.85M42.84 133L28.99 141M37.98 122.57L28.58 125.99M35 111.46L25.15 113.2" stroke="#ede6e1"/><path d="M162 100L190 100M100 162L100 190M38 100L10 100" stroke="#ede6e1" stroke-width="2"/><path d="M42.88 110.07L7.43 116.32" stroke="#b6ff2e" stroke-width="2"/><text x="100" y="106" font-size="28" font-weight="300" fill="#ede6e1" text-anchor="middle" font-family="'Martian Mono', ui-monospace, monospace">72<tspan font-size="13" fill="#8e8380" dx="2">%</tspan></text><text x="100" y="126" font-size="10" fill="#8e8380" text-anchor="middle" font-family="'Martian Mono', ui-monospace, monospace" letter-spacing="1.4">CPU · NODE-02</text></svg></div>
+      </div>
+      <div class="cell">
+        <span class="label"><span><b>■</b> Uptime</span><span>gitea · last 24 h</span></span>
+        <div class="lw-fig"><svg role="img" aria-label="Uptime for the last 24 hours: up except one outage from 14:00 to 15:00" viewBox="0 0 300 30" width="300" height="30"><path d="M0 13.5H300" stroke="#ede6e1" stroke-opacity=".35"/><rect x="0.5" y="10" width="174" height="6" fill="#ede6e1"/><rect x="188" y="10" width="111.5" height="6" fill="#ede6e1"/><rect x="180.25" y="6" width="2" height="14" fill="#ff2e3a"/><path d="M0 22.5H300" stroke="#2c2a29"/><path d="M0.5 22v6M12.5 22v3M25.5 22v3M37.5 22v3M50.5 22v3M62.5 22v3M75.5 22v6M87.5 22v3M100.5 22v3M112.5 22v3M125.5 22v3M137.5 22v3M150.5 22v6M162.5 22v3M174.5 22v3M187.5 22v3M199.5 22v3M212.5 22v3M224.5 22v6M237.5 22v3M249.5 22v3M262.5 22v3M274.5 22v3M287.5 22v3M299.5 22v6" stroke="#8e8380"/></svg></div>
+        <div class="lw-scale label"><span>−24 h</span><span>−12 h</span><span>now</span></div>
+        <dl class="leaders">
+          <div><dt>Uptime</dt><i></i><dd>95.8%</dd></div>
+          <div><dt>Outage</dt><i></i><dd style="color:var(--down)">■ 14:00–15:00</dd></div>
+        </dl>
+      </div>
+      <div class="cell">
+        <span class="label"><span><b>■</b> Empty state</span><span>Alerts</span></span>
+        <div class="lw-empty">
+          <svg aria-hidden="true" viewBox="0 0 300 168" width="300" height="168"><path d="M9.45 13.45h1.11v1.11h-1.11zM9.32 33.33h1.35v1.35h-1.35zM9.23 53.23h1.53v1.53h-1.53zM9.2 73.19h1.61v1.61h-1.61zM9.2 93.19h1.61v1.61h-1.61zM9.23 113.23h1.53v1.53h-1.53zM9.32 133.32h1.35v1.35h-1.35zM9.45 153.44h1.11v1.11h-1.11zM29.17 13.17h1.66v1.66h-1.66zM29.03 33.03h1.94v1.94h-1.94zM28.93 52.94h2.13v2.13h-2.13zM28.88 72.88h2.24v2.24h-2.24zM28.88 92.88h2.24v2.24h-2.24zM28.93 112.94h2.13v2.13h-2.13zM29.03 133.03h1.94v1.94h-1.94zM29.17 153.17h1.66v1.66h-1.66zM48.91 12.9h2.19v2.19h-2.19zM48.74 32.74h2.51v2.51h-2.51zM48.63 52.63h2.74v2.74h-2.74zM48.57 72.57h2.86v2.86h-2.86zM48.57 92.57h2.86v2.86h-2.86zM48.63 112.63h2.74v2.74h-2.74zM48.74 132.75h2.51v2.51h-2.51zM48.91 152.91h2.19v2.19h-2.19zM68.66 12.66h2.68v2.68h-2.68zM68.47 32.48h3.05v3.05h-3.05zM68.33 52.34h3.33v3.33h-3.33zM68.26 72.26h3.48v3.48h-3.48zM68.26 92.26h3.48v3.48h-3.48zM68.33 112.33h3.33v3.33h-3.33zM68.47 132.47h3.05v3.05h-3.05zM68.66 152.66h2.68v2.68h-2.68zM88.44 12.44h3.12v3.12h-3.12zM88.22 32.22h3.56v3.56h-3.56zM88.05 52.05h3.9v3.9h-3.9zM87.95 71.95h4.1v4.1h-4.1zM87.95 91.95h4.1v4.1h-4.1zM88.05 112.05h3.9v3.9h-3.9zM88.22 132.22h3.56v3.56h-3.56zM88.44 152.44h3.12v3.12h-3.12zM108.26 12.26h3.48v3.48h-3.48zM108 32h4v4h-4zM107.78 51.78h4.44v4.44h-4.44zM107.64 71.64h4.71v4.71h-4.71zM107.64 91.64h4.71v4.71h-4.71zM107.78 111.78h4.44v4.44h-4.44zM108 132h4v4h-4zM108.26 152.26h3.48v3.48h-3.48zM128.14 12.14h3.72v3.72h-3.72zM127.84 31.84h4.32v4.32h-4.32zM127.56 51.56h4.87v4.87h-4.87zM127.35 71.35h5.3v5.3h-5.3zM127.35 91.35h5.3v5.3h-5.3zM127.56 111.56h4.87v4.87h-4.87zM127.84 131.84h4.32v4.32h-4.32zM128.14 152.14h3.72v3.72h-3.72zM148.09 12.1h3.81v3.81h-3.81zM147.78 31.78h4.44v4.44h-4.44zM147.47 51.47h5.06v5.06h-5.06zM147.16 71.16h5.69v5.69h-5.69zM147.16 91.16h5.69v5.69h-5.69zM147.47 111.47h5.06v5.06h-5.06zM147.78 131.78h4.44v4.44h-4.44zM148.09 152.09h3.81v3.81h-3.81zM168.14 12.14h3.72v3.72h-3.72zM167.84 31.84h4.32v4.32h-4.32zM167.56 51.56h4.87v4.87h-4.87zM167.35 71.35h5.3v5.3h-5.3zM167.35 91.35h5.3v5.3h-5.3zM167.56 111.56h4.87v4.87h-4.87zM167.84 131.84h4.32v4.32h-4.32zM168.14 152.14h3.72v3.72h-3.72zM188.26 12.26h3.48v3.48h-3.48zM188 32h4v4h-4zM187.78 51.78h4.44v4.44h-4.44zM187.65 71.64h4.71v4.71h-4.71zM187.65 91.64h4.71v4.71h-4.71zM187.78 111.78h4.44v4.44h-4.44zM188 132h4v4h-4zM188.26 152.26h3.48v3.48h-3.48zM208.44 12.44h3.12v3.12h-3.12zM208.22 32.22h3.56v3.56h-3.56zM208.05 52.05h3.9v3.9h-3.9zM207.95 71.95h4.1v4.1h-4.1zM207.95 91.95h4.1v4.1h-4.1zM208.05 112.05h3.9v3.9h-3.9zM208.22 132.22h3.56v3.56h-3.56zM208.44 152.44h3.12v3.12h-3.12zM228.66 12.66h2.68v2.68h-2.68zM228.47 32.48h3.05v3.05h-3.05zM228.34 52.34h3.33v3.33h-3.33zM228.26 72.26h3.48v3.48h-3.48zM228.26 92.26h3.48v3.48h-3.48zM228.34 112.33h3.33v3.33h-3.33zM228.47 132.47h3.05v3.05h-3.05zM228.66 152.66h2.68v2.68h-2.68zM248.91 12.9h2.19v2.19h-2.19zM248.75 32.74h2.51v2.51h-2.51zM248.63 52.63h2.74v2.74h-2.74zM248.57 72.57h2.86v2.86h-2.86zM248.57 92.57h2.86v2.86h-2.86zM248.63 112.63h2.74v2.74h-2.74zM248.75 132.75h2.51v2.51h-2.51zM248.91 152.91h2.19v2.19h-2.19zM269.17 13.17h1.66v1.66h-1.66zM269.03 33.03h1.94v1.94h-1.94zM268.94 52.94h2.13v2.13h-2.13zM268.88 72.88h2.24v2.24h-2.24zM268.88 92.88h2.24v2.24h-2.24zM268.94 112.94h2.13v2.13h-2.13zM269.03 133.03h1.94v1.94h-1.94zM269.17 153.17h1.66v1.66h-1.66zM289.44 13.45h1.11v1.11h-1.11zM289.32 33.33h1.35v1.35h-1.35zM289.24 53.23h1.53v1.53h-1.53zM289.19 73.19h1.61v1.61h-1.61zM289.19 93.19h1.61v1.61h-1.61zM289.24 113.23h1.53v1.53h-1.53zM289.32 133.32h1.35v1.35h-1.35zM289.44 153.44h1.11v1.11h-1.11z" fill="#ede6e1" fill-opacity="0.4"/></svg>
+          <div class="lw-empty-t"><strong>No open alerts</strong><span class="mono">Survey complete · 14:32</span></div>
+        </div>
+        <div class="lw-fig"><svg aria-hidden="true" viewBox="0 0 260 13" width="260" height="13"><path d="M0 6.5H150" stroke="#ede6e1" stroke-opacity=".55"/><path d="M.5 2v9" stroke="#8e8380"/><path d="M0 6.5H32" stroke="#b6ff2e"/><path d="M154.5 5h3v3h-3zM160.5 5h3v3h-3zM168.35 5.25h2.5v2.5h-2.5zM177.55 5.25h2.5v2.5h-2.5zM188.6 5.5h2v2h-2zM201 5.5h2v2h-2zM215.25 5.75h1.5v1.5h-1.5zM230.85 5.75h1.5v1.5h-1.5zM248.3 6h1v1h-1zM267.1 6h1v1h-1z" fill="#ede6e1"/></svg></div>
+      </div>
+      <div class="cell s12">
+        <span class="label"><span><b>■</b> AssetTag</span><span>Decal · Code 128</span></span>
+        <div class="lw-tagrow">
+          <div class="lw-tag">
+            <span class="lw-tag-head">Property of</span>
+            <svg class="lw-tag-lock" role="img" aria-label="AstraLabs" viewBox="0 0.00 904.68 105.00"> <g transform="translate(0.00 0.00) scale(0.20207)" fill="#FFFFFF"><path d="M0 519.62 L300 0 L542.84 420.62 L466.63 420.62 L300 132 L76.21 519.62 Z"/><path d="M114.32 519.62 L300 198 L338.11 264 L228.63 453.62 L561.89 453.62 L600 519.62 Z"/></g> <path fill="#FFFFFF" d="M236.7592696453283 74.9 249.69528673517203 30.1H258.7896060711095L271.72562316095326 74.9H265.8344737468908L254.34324571954704 34.4903671875H253.82804845392204L242.30322179376577 74.9ZM243.96086827814077 59.10796240234375V53.84401025390625H264.56882726251575V59.10796240234375Z M306.18802111017203 63.476000000000006Q307.0392149578283 66.8808232421875 309.78882213556267 68.6840341796875Q312.53842931329706 70.4872451171875 316.89525255548455 70.4872451171875Q321.44246349298453 70.4872451171875 324.0576693035314 68.35363623046875Q326.6728751140783 66.22002734375 326.6728751140783 62.535210937500004Q326.6728751140783 59.5559931640625 324.83606896173455 57.831185302734376Q322.9992628093908 56.10637744140625 319.2808477703283 55.680775390625L313.5688477703283 55.008775390625004Q307.46485802423456 54.25837744140625 304.35686315118767 51.13918017578125Q301.2488682781408 48.01998291015625 301.2488682781408 42.5767890625Q301.2488682781408 38.533591796875 303.20886486017207 35.55439453125Q305.1688614422033 32.575197265625 308.7192559734533 30.912Q312.2696505047033 29.248802734374998 317.00724571954703 29.248802734374998Q321.7336436687658 29.248802734374998 325.2840382000158 30.844801025390623Q328.8344327312658 32.44079931640625 330.8952286297033 35.425598632812495Q332.9560245281408 38.41039794921875 333.2360245281408 42.644H327.84887169610954Q327.0536778484533 38.72397607421875 324.24807237970333 36.61836547851563Q321.4424669109533 34.5127548828125 317.00724571954703 34.5127548828125Q312.2248340984533 34.5127548828125 309.4808272625158 36.674363769531254Q306.7368204265783 38.83597265625 306.7368204265783 42.5767890625Q306.7368204265783 45.5560068359375 308.59602623712516 47.2584150390625Q310.45523204767204 48.9608232421875 314.1288477703283 49.431224609375L319.8408477703283 50.103224609375005Q325.9896368328283 50.8088232421875 329.07523204767205 53.950420166015626Q332.1608272625158 57.09201708984375 332.1608272625158 62.535210937500004Q332.1608272625158 66.52240820312501 330.2624310222814 69.49600512695314Q328.36403478204704 72.46960205078126 324.93684093439083 74.11039965820314Q321.50964708673456 75.75119726562501 316.89525255548455 75.75119726562501Q312.15765392267207 75.75119726562501 308.6184583660314 74.29519897460938Q305.0792628093908 72.83920068359376 303.04086656915644 70.07840136718751Q301.0024703289221 67.31760205078126 300.7112696453283 63.476000000000006Z M375.7736710125158 74.9V35.3639521484375H361.2584669109533V30.1H395.86642589532835V35.3639521484375H381.35122179376583V74.9Z M426.95766417657836 74.9V30.1H443.66803136407833Q447.9912320476721 30.1 451.1776317058752 31.651198974609375Q454.36403136407836 33.20239794921875 456.1168306804846 36.08639624023438Q457.86962999689086 38.97039453125 457.86962999689086 42.9239931640625Q457.86962999689086 46.68719384765625 456.09443102228147 49.4759931640625Q454.31923204767213 52.264792480468756 451.132832389469 53.838391113281254Q447.9464327312659 55.41198974609375 443.66803136407833 55.41198974609375H432.5352149578284V74.9ZM452.3928785320471 74.9 439.0648648601721 54.403996582031255H445.2472115398596L458.87762316095336 74.9ZM432.5352149578284 50.5736328125H443.8248340984534Q447.6664566570471 50.5736328125 449.97926793634394 48.479222900390624Q452.29207921564085 46.384812988281254 452.29207921564085 42.96879248046875Q452.29207921564085 39.50797265625 449.97926793634394 37.43596240234375Q447.6664566570471 35.3639521484375 443.8248340984534 35.3639521484375H432.5352149578284Z M485.3992696453284 74.9 498.33528673517213 30.1H507.4296060711096L520.3656231609534 74.9H514.4744737468909L502.98324571954714 34.4903671875H502.4680484539221L490.9432217937659 74.9ZM492.60086827814087 59.10796240234375V53.84401025390625H513.2088272625159V59.10796240234375Z M617.0664600750158 74.9V30.1H622.6440108562658V69.63604785156251H644.2824464031409V74.9Z M671.8792696453282 74.9 684.815286735172 30.1H693.9096060711096L706.8456231609533 74.9H700.9544737468908L689.463245719547 34.4903671875H688.9480484539221L677.4232217937658 74.9ZM679.0808682781408 59.10796240234375V53.84401025390625H699.6888272625158V59.10796240234375Z M738.2504737468907 74.9V30.1H752.5864395672032Q759.597640250797 30.1 763.6184378582188 33.331197265625Q767.6392354656407 36.56239453125 767.6392354656407 42.1959931640625Q767.6392354656407 45.600802734375 765.8472303386876 48.02560546875Q764.0552252117345 50.450408203125 760.8072149578283 51.35760546875V52.1864013671875Q764.424823844547 53.2055986328125 766.4016282879063 55.938399658203124Q768.3784327312658 58.67120068359375 768.3784327312658 62.5800068359375Q768.3784327312658 68.33680615234375 764.1728358074377 71.61840307617189Q759.9672388836095 74.9 752.5864395672032 74.9ZM743.8280245281408 69.725646484375H752.5864395672032Q757.5480587078282 69.725646484375 760.174470328922 67.76003759765626Q762.8008819500158 65.79442871093751 762.8008819500158 62.221612304687504Q762.8008819500158 58.62639453125 760.174470328922 56.66078564453125Q757.5480587078282 54.695176757812504 752.5864395672032 54.695176757812504H743.8280245281408ZM743.8280245281408 49.812020507812505H752.5864395672032Q757.279259391422 49.812020507812505 759.7656710125157 47.930411621093754Q762.2520826336095 46.048802734375 762.2520826336095 42.5543876953125Q762.2520826336095 39.0375712890625 759.7656710125157 37.15596240234375Q757.279259391422 35.274353515625 752.5864395672032 35.274353515625H743.8280245281408Z M803.468021110172 63.476000000000006Q804.3192149578282 66.8808232421875 807.0688221355626 68.6840341796875Q809.818429313297 70.4872451171875 814.1752525554845 70.4872451171875Q818.7224634929845 70.4872451171875 821.3376693035314 68.35363623046875Q823.9528751140782 66.22002734375 823.9528751140782 62.535210937500004Q823.9528751140782 59.5559931640625 822.1160689617345 57.831185302734376Q820.2792628093907 56.10637744140625 816.5608477703282 55.680775390625L810.8488477703282 55.008775390625004Q804.7448580242344 54.25837744140625 801.6368631511875 51.13918017578125Q798.5288682781407 48.01998291015625 798.5288682781407 42.5767890625Q798.5288682781407 38.533591796875 800.488864860172 35.55439453125Q802.4488614422032 32.575197265625 805.9992559734533 30.912Q809.5496505047032 29.248802734374998 814.287245719547 29.248802734374998Q819.0136436687657 29.248802734374998 822.5640382000157 30.844801025390623Q826.1144327312658 32.44079931640625 828.1752286297033 35.425598632812495Q830.2360245281408 38.41039794921875 830.5160245281407 42.644H825.1288716961095Q824.3336778484532 38.72397607421875 821.5280723797032 36.61836547851563Q818.7224669109532 34.5127548828125 814.287245719547 34.5127548828125Q809.5048340984532 34.5127548828125 806.7608272625157 36.674363769531254Q804.0168204265782 38.83597265625 804.0168204265782 42.5767890625Q804.0168204265782 45.5560068359375 805.8760262371251 47.2584150390625Q807.735232047672 48.9608232421875 811.4088477703282 49.431224609375L817.1208477703282 50.103224609375005Q823.2696368328283 50.8088232421875 826.355232047672 53.950420166015626Q829.4408272625158 57.09201708984375 829.4408272625158 62.535210937500004Q829.4408272625158 66.52240820312501 827.5424310222813 69.49600512695314Q825.644034782047 72.46960205078126 822.2168409343908 74.11039965820314Q818.7896470867345 75.75119726562501 814.1752525554845 75.75119726562501Q809.437653922672 75.75119726562501 805.8984583660314 74.29519897460938Q802.3592628093908 72.83920068359376 800.3208665691564 70.07840136718751Q798.2824703289219 67.31760205078126 797.9912696453282 63.476000000000006Z"/> <path fill="#B6FF2E" d="M196.50642589532828 25.12723828125V29.9879931640625H183.96241905939078V77.25200683593751H196.50642589532828V82.11276171875001H178.69846691095327V25.12723828125Z M578.3368204265784 27.412 557.1240245281408 84.42H551.7480723797033L572.9608682781409 27.412Z M871.4184669109533 25.12723828125H889.2264258953282V82.11276171875001H871.4184669109533V77.25200683593751H883.9624737468907V29.9879931640625H871.4184669109533Z"/> </svg>
+            <svg class="lw-tag-code" viewBox="0 0 209 1" preserveAspectRatio="none" role="img" aria-label="Code 128 barcode for AL-0451-NODE02"><path d="M10 0h2v1h-2zM13 0h1v1h-1zM16 0h1v1h-1zM21 0h1v1h-1zM23 0h1v1h-1zM27 0h2v1h-2zM32 0h1v1h-1zM36 0h2v1h-2zM39 0h3v1h-3zM43 0h1v1h-1zM46 0h2v1h-2zM49 0h3v1h-3zM54 0h1v1h-1zM57 0h3v1h-3zM61 0h2v1h-2zM65 0h2v1h-2zM69 0h1v1h-1zM72 0h3v1h-3zM76 0h2v1h-2zM79 0h3v1h-3zM84 0h1v1h-1zM87 0h1v1h-1zM90 0h3v1h-3zM95 0h2v1h-2zM98 0h1v1h-1zM101 0h2v1h-2zM104 0h3v1h-3zM109 0h1v1h-1zM111 0h3v1h-3zM117 0h2v1h-2zM120 0h1v1h-1zM124 0h3v1h-3zM128 0h2v1h-2zM131 0h1v1h-1zM133 0h2v1h-2zM138 0h1v1h-1zM142 0h1v1h-1zM146 0h2v1h-2zM149 0h1v1h-1zM153 0h1v1h-1zM156 0h3v1h-3zM160 0h2v1h-2zM164 0h2v1h-2zM168 0h3v1h-3zM173 0h1v1h-1zM175 0h4v1h-4zM180 0h3v1h-3zM184 0h1v1h-1zM186 0h2v1h-2zM191 0h3v1h-3zM195 0h1v1h-1zM197 0h2v1h-2z"/></svg>
+            <span class="lw-tag-id">AL-0451-NODE02</span>
+          </div>
+          <dl class="leaders">
+            <div><dt>Host</dt><i></i><dd>node-02.astralabs.dev</dd></div>
+            <div><dt>Asset</dt><i></i><dd>AL-0451-NODE02</dd></div>
+            <div><dt>Revision</dt><i></i><dd>C</dd></div>
+            <div><dt>Encoding</dt><i></i><dd>Code 128 · scans</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- linework:end -->
+
   <!-- ===================== FEEDBACK ===================== -->
   <section id="feedback" data-reveal>
     <div class="sec-head"><div class="t"><h2>Feedback</h2><span class="label">Alerts · toasts · dialogs · loading</span></div><div class="mrule"><i></i></div></div>
     <div class="sheet">
       <div class="cell s6">
-        <span class="label"><span><b>■</b> Alerts</span><span>Shape + word, never colour alone</span></span>
+        <span class="label"><span><b>■</b> Alerts</span><span>Shape + word, never color alone</span></span>
         <div style="display:grid">
           <div class="alert"><div><h4>Certificate renews in 12 days</h4><p>*.astralabs.dev renews automatically through the ACME client on node-01.</p></div><button class="x" type="button" aria-label="Dismiss">×</button><span class="meta">caddy · 09:12</span></div>
           <div class="alert ok"><div><h4>Backup complete</h4><p>restic snapshot 4f2a91c · 182 GB · finished 03:14.</p></div><button class="x" type="button" aria-label="Dismiss">×</button><span class="meta">restic · 03:14</span></div>
@@ -1050,12 +1136,12 @@ UPLOAD_LOCATION=/mnt/pool-a/photos</textarea><span class="hint">One KEY=value pe
 
   /* ---------- login art: dot field, then reboot sequence ---------- */
 
-  /* dot field: 14px grid, brighter toward the centre; p = ignition progress (1 = at rest) */
+  /* dot field: 14px grid, brighter toward the center; p = ignition progress (1 = at rest) */
   function drawField(p) {
     const c = $('#lg-field'), r = c.getBoundingClientRect(), dpr = devicePixelRatio || 1;
     c.width = r.width * dpr; c.height = r.height * dpr;
     const x = c.getContext('2d'); x.scale(dpr, dpr);
-    // origin = centre of the mark, so the ring visibly leaves the logo
+    // origin = center of the mark, so the ring visibly leaves the logo
     const m = $('#lg-mk').getBoundingClientRect(), W = r.width, H = r.height, cx = m.left - r.left + m.width / 2, cy = m.top - r.top + m.height * .62;
     const max = Math.max(Math.hypot(cx, cy), Math.hypot(W - cx, cy), Math.hypot(cx, H - cy), Math.hypot(W - cx, H - cy)), R = max * p;
     for (let gx = 8; gx < W; gx += 14) for (let gy = 8; gy < H; gy += 14) {
@@ -1069,20 +1155,20 @@ UPLOAD_LOCATION=/mnt/pool-a/photos</textarea><span class="hint">One KEY=value pe
   }
   function igniteField(tok) {
     const t0 = performance.now();
-    const HOLD = 450, DUR = 1300;  // hold the unlit grid, then ignite on an ease-in-out so the start reads at the centre
+    const HOLD = 450, DUR = 1300;  // hold the unlit grid, then ignite on an ease-in-out so the start reads at the center
     lgIdle.stop();
     const f = () => { if (tok !== bootTok) return; const el = performance.now() - t0, t = Math.min(1, Math.max(0, (el - HOLD) / DUR)), e = t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; drawField(Math.max(.0001, e)); if (t >= 1) { lgIdle.start(true); return; } requestAnimationFrame(f); };
     f();
   }
 
   /* ================= DOT FIELD · IDLE (Sea) =================
-     Runs after ignition. The dots never move. Their grey shifts very slightly with a slow height field,
+     Runs after ignition. The dots never move. Their gray shifts very slightly with a slow height field,
      like ocean swell seen from straight above: a few long waves crossing at different angles and speeds,
-     summed so they interfere. Greys only, about ±14% around the resting brightness. */
+     summed so they interfere. Grays only, about ±14% around the resting brightness. */
   const SEA_WAVES = [  // wavelength px, direction deg, speed px/s, weight
     [620, 18, 9, .34], [430, 112, 7, .26], [300, 205, 11, .2], [760, 290, 6, .2],
   ].map(([l, deg, v, w], i) => { const a = deg * Math.PI / 180; return { kx: Math.cos(a) * 2 * Math.PI / l, ky: Math.sin(a) * 2 * Math.PI / l, w: v * 2 * Math.PI / l, a: w, p: i * 1.7 }; });
-  const FIELD_MODES = { sea: { name: 'Sea', desc: 'The dots stay still. Their grey rises and falls by about 14% with a slow height field, like ocean swell seen from above: four long waves at different angles and speeds, crossing and interfering.' } };
+  const FIELD_MODES = { sea: { name: 'Sea', desc: 'The dots stay still. Their gray rises and falls by about 14% with a slow height field, like ocean swell seen from above: four long waves at different angles and speeds, crossing and interfering.' } };
   function fieldIdle(canvas, o = {}) {
     const st = { k: o.k == null ? 1 : o.k, origin: o.origin || null, ramp: 0, running: false, raf: 0, t0: performance.now(), visible: true };
     const reduceF = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1096,7 +1182,7 @@ UPLOAD_LOCATION=/mnt/pool-a/photos</textarea><span class="hint">One KEY=value pe
       const [cx, cy] = pos(), max = Math.max(Math.hypot(cx, cy), Math.hypot(W - cx, cy), Math.hypot(cx, H - cy), Math.hypot(W - cx, H - cy));
       for (let gx = 8; gx < W; gx += 14) for (let gy = 8; gy < H; gy += 14) {
         let h = 0; for (const w of SEA_WAVES) h += w.a * Math.sin(gx * w.kx + gy * w.ky - t * w.w + w.p);
-        const rest = .12 + Math.max(0, 1 - Math.hypot(gx - cx, gy - cy) / max) * .2;   // same resting grey as the end of ignition
+        const rest = .12 + Math.max(0, 1 - Math.hypot(gx - cx, gy - cy) / max) * .2;   // same resting gray as the end of ignition
         ctx.fillStyle = `rgba(237,230,225,${Math.max(.04, rest + h * amp).toFixed(3)})`;
         ctx.fillRect(gx - .75, gy - .75, 1.5, 1.5);
       }
@@ -1388,7 +1474,7 @@ UPLOAD_LOCATION=/mnt/pool-a/photos</textarea><span class="hint">One KEY=value pe
   mIn.addEventListener('input', () => { mGo.disabled = mIn.value.trim() !== 'pool-a'; });
   $('#m-cancel').addEventListener('click', closeModal);
   modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  mGo.addEventListener('click', () => { closeModal(); toast('Wipe cancelled', 'Demo only. pool-a is safe.'); });
+  mGo.addEventListener('click', () => { closeModal(); toast('Wipe canceled', 'Demo only. pool-a is safe.'); });
 
   /* ---------- tabs with sliding indicator ---------- */
   const TP = ['immich on node-02 · 3 containers · up 6d 14h.', '22:14:08 INFO server listening on :2283 · 22:14:11 WARN ML queue 412 jobs', '/mnt/pool-a/photos → /usr/src/app/upload (1.21 TB) · pg-data (14 GB)', 'photos.astralabs.dev → 10.0.0.12:2283 via caddy · TLS by ACME'];
@@ -1441,7 +1527,7 @@ UPLOAD_LOCATION=/mnt/pool-a/photos</textarea><span class="hint">One KEY=value pe
 
   /* ================= LIVE CHARTS (SVG) =================
      Single series use brand Acid. Multi-series use the validated chart palette (dark band, CVD-checked):
-     s1 #70a600 · s2 #0486d3 · s3 #c13b9f · other #5a5452. Status colours only ever mean status. */
+     s1 #70a600 · s2 #0486d3 · s3 #c13b9f · other #5a5452. Status colors only ever mean status. */
   const CH = { surface: '#0a0909', acid: '#b6ff2e', s1: '#70a600', s2: '#0486d3', s3: '#c13b9f', other: '#5a5452', ok: '#4dff88', warn: '#ffa21f', down: '#ff2e3a', bone: '#ede6e1', ash: '#8e8380' };
   const svgN = (tag, attrs = {}, parent) => { const n = document.createElementNS('http://www.w3.org/2000/svg', tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; };
   const niceStep = (max, n = 4) => { const raw = Math.max(max, 1e-6) / n, p = 10 ** Math.floor(Math.log10(raw)), f = raw / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; };
@@ -1648,7 +1734,7 @@ UPLOAD_LOCATION=/mnt/pool-a/photos</textarea><span class="hint">One KEY=value pe
     host.querySelectorAll('.mk-bar').forEach(p => { p.addEventListener('pointerenter', () => { const b = bins[+p.dataset.i], bb = p.getBBox(); showTip(tt, host, bb.x + bb.width, bb.y, `<span class="h">${b.lo}–${b.hi} ms</span><span class="r"><span>requests</span><b>${nf(b.c)}</b></span>`); }); p.addEventListener('pointerleave', () => tt.hidden = true); });
   }
 
-  /* --- static: 90-day status strip (status colours carry a shape in the legend and a word in the tooltip) --- */
+  /* --- static: 90-day status strip (status colors carry a shape in the legend and a word in the tooltip) --- */
   function uptimeChart(host, days) {
     const W = Math.max(240, host.clientWidth), H = 46, n = days.length, gap = 2, bw = (W - gap * (n - 1)) / n;
     let s = `<svg viewBox="0 0 ${W} ${H}" height="${H}" role="img" aria-label="90 day uptime">`;

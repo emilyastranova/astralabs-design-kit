@@ -37,18 +37,24 @@ brand/
   astralabs-mark.svg            Mark, white (default)
   astralabs-mark-carbon.svg     Mark, carbon (for light surfaces)
   astralabs-lockup.svg          Mark + [ASTRA/LABS], horizontal
-  astralabs-lockup-mono.svg     Lockup, single colour
+  astralabs-lockup-mono.svg     Lockup, single color
   astralabs-lockup-stacked.svg  Lockup, stacked
-  png/                          Mark at 32–1024px (white, carbon); lockups at 1200w / 2400w
-  square/                       Square icons for Discord etc. (plain and registration-grid), 128–1024px
-  fonts/                        Martian Mono variable font + OFL licence
+  astralabs-*-light.svg         The three lockups for white and light backgrounds: carbon letters,
+                                brackets and slash in acid-ink #598C00 (mono-light is all carbon)
+  png/                          Mark at 32–1024px (white, carbon); lockups and light lockups at 1200w / 2400w
+  square/                       Square icons for Discord etc., 128–1024px: plain, registration-grid and
+                                bracketed [▲], each with a -light version on a white ground
+  fonts/                        Martian Mono variable font + OFL license
   astralabs.css                 Drop-in stylesheet: tokens, type, components, utilities
   astralabs-components.js       React components (window.AstraLabs)
   astralabs-components.d.ts     Type definitions for the components
 design-system.html              Full brand guide, tokens, logos, live components, motion (one file)
 web-kit.html                    Interactive UI kit
 motion-lab.html                 Motion system reference and concepts
-.github/assets/                 README banner and colour swatches
+tools/
+  render_logo_variants.py       Regenerates the light and bracketed logo files and their PNGs
+  publish_to_site.py            Copies the three pages to astralabs.dev/design
+.github/assets/                 README banner and color swatches
 LICENSE                         GNU AGPL-3.0
 ```
 
@@ -61,7 +67,7 @@ All lockup SVGs have their text converted to outlines, so they need no fonts.
 ### Mark
 
 - The mark is **always solid white** on dark surfaces. Use `astralabs-mark-carbon.svg` only on light surfaces.
-- Never split it into two colours, and never tint it Acid.
+- Never split it into two colors, and never tint it Acid.
 - Geometry (viewBox `0 0 600 519.62`) is two paths built on a 60° triangle. The two negative-space gaps are equal width.
 - Keep clear space of at least the width of one gap around it.
 
@@ -81,7 +87,7 @@ To use it inline, define it once as a `<symbol>` with `fill="currentColor"` and 
 
 The wordmark is `[ASTRA/LABS]`. It is set in Martian Mono at weight 300, width 112.5, with .36em tracking. The brackets and slash take the same weight as the letters.
 
-### Colour
+### Color
 
 | Token | Hex | Role |
 |---|---|---|
@@ -95,11 +101,12 @@ The wordmark is `[ASTRA/LABS]`. It is set in Martian Mono at weight 300, width 1
 | <img src=".github/assets/swatch-acid.svg" width="14" height="14" alt=""> `--acid` | `#B6FF2E` | Primary: actions, focus, live data |
 | <img src=".github/assets/swatch-acid-hi.svg" width="14" height="14" alt=""> `--acid-hi` | `#CCFF6B` | Acid hover |
 | <img src=".github/assets/swatch-on-acid.svg" width="14" height="14" alt=""> `--on-acid` | `#0A0909` | Text on Acid |
+| <img src=".github/assets/swatch-acid-ink.svg" width="14" height="14" alt=""> `--acid-ink` | `#598C00` | Acid on white: logo brackets and slash only |
 | <img src=".github/assets/swatch-status-ok.svg" width="14" height="14" alt=""> `--status-ok` | `#4DFF88` | Status: healthy |
 | <img src=".github/assets/swatch-status-warn.svg" width="14" height="14" alt=""> `--status-warn` | `#FFA21F` | Status: degraded |
 | <img src=".github/assets/swatch-status-down.svg" width="14" height="14" alt=""> `--status-down` | `#FF2E3A` | Status: down / danger |
 
-Use Acid sparingly, for one primary action or one live signal per view. The status colours are reserved for state. Always pair them with a label and never reuse them as decoration.
+Use Acid sparingly, for one primary action or one live signal per view. The status colors are reserved for state. Always pair them with a label and never reuse them as decoration.
 
 ### Chart palette
 
@@ -110,13 +117,13 @@ Use Acid sparingly, for one primary action or one live signal per view. The stat
 | <img src=".github/assets/swatch-chart-3.svg" width="14" height="14" alt=""> `chart-3` | `#C13B9F` |
 | <img src=".github/assets/swatch-chart-other.svg" width="14" height="14" alt=""> `chart-other` | `#5A5452` |
 
-Single-series charts use Acid. Multi-series charts take the chart colours in fixed order. Anything past three series folds into `chart-other`. The palette has been checked for colour-vision-deficiency separation.
+Single-series charts use Acid. Multi-series charts take the chart colors in fixed order. Anything past three series folds into `chart-other`. The palette has been checked for color-vision-deficiency separation.
 
 ### Typography
 
 | Role | Face | Notes |
 |---|---|---|
-| Display, body | Archivo | Loaded from Google Fonts |
+| Display, body | Chakra Petch | Loaded from Google Fonts |
 | Labels | Martian Mono | 10.5px, uppercase, .14em tracking |
 | Data, readouts | Martian Mono | Tabular figures |
 | Wordmark | Martian Mono | 300 weight, wdth 112.5, .36em tracking |
@@ -155,8 +162,8 @@ For stepped flickers in WAAPI, put `steps(1, end)` on **each keyframe**. Don't u
 
 ### Login sequence
 
-1. **Dot field ignition.** The grid sits still for a moment, then lights up outward from the centre.
-2. **Sea idle field.** The dots stay still. Slow patterns of slightly different greys (about ±14%) drift across them, like ocean swells seen from above.
+1. **Dot field ignition.** The grid sits still for a moment, then lights up outward from the center.
+2. **Sea idle field.** The dots stay still. Slow patterns of slightly different grays (about ±14%) drift across them, like ocean swells seen from above.
 3. **Mark.** The outline traces, then the fill flickers on like a tube.
 4. **Path boot.** `[ / ]` shows with a spinner. `ASTRA` types in on the left, then `LABS` on the right, then the brackets snap shut.
 5. **SSO handoff** (auth.astralabs.dev). Panes flicker out and flicker back in.
@@ -181,7 +188,7 @@ Intensity can be adjusted. Keep it rare and brief.
 
 ### Stylesheet
 
-Copy `brand/astralabs.css` and `brand/fonts/` next to each other. The stylesheet loads Martian Mono from `fonts/MartianMono-Variable.woff2` and Archivo from Google Fonts.
+Copy `brand/astralabs.css` and `brand/fonts/` next to each other. The stylesheet loads Martian Mono from `fonts/MartianMono-Variable.woff2` and Chakra Petch from Google Fonts.
 
 ```html
 <link rel="stylesheet" href="astralabs.css">
@@ -231,7 +238,7 @@ Types are in `astralabs-components.d.ts`.
 
 ## Reference pages
 
-**`design-system.html`** is the complete design system in one file: the brand guide, every colour, type, spacing and chamfer token with its usage, the logo files, live previews of each component with its usage notes, and the full motion spec. The Martian Mono font is embedded in it.
+**`design-system.html`** is the complete design system in one file: the brand guide, every color, type, spacing and chamfer token with its usage, the logo files, live previews of each component with its usage notes, and the full motion spec. The Martian Mono font is embedded in it.
 
 Open these pages directly in a browser. They need no build step.
 
@@ -266,7 +273,7 @@ Its graphs section includes:
 
 ---
 
-## Licence
+## License
 
 Copyright © 2026 Emily Astranova.
 
@@ -274,4 +281,4 @@ The AstraLabs design and brand, including the name, mark, wordmark, lockups and 
 
 This project is licensed under the [GNU Affero General Public License v3.0](LICENSE) (AGPL-3.0). The AGPL grants no trademark rights: the AstraLabs name and logos identify Emily Astranova's work and shouldn't be used to brand anything else.
 
-Martian Mono is © Evil Martians and is licensed separately under the SIL Open Font License 1.1 (`brand/fonts/OFL.txt`). Archivo is also licensed under the OFL and is served by Google Fonts.
+Martian Mono is © Evil Martians and is licensed separately under the SIL Open Font License 1.1 (`brand/fonts/OFL.txt`). Chakra Petch is also licensed under the OFL and is served by Google Fonts.

@@ -109,11 +109,11 @@ export interface SerialTagProps {
 }
 
 export interface AssetTagProps {
-  /** Asset ID in the header bar. Default AL-0451. */
+  /** A real asset ID. Encoded as a scannable Code 128 barcode and printed under it. Default AL-0451-NODE02. */
   id?: string;
-  /** Header text. Default "Property of". */
+  /** Small label above the lockup. Default "Property of". */
   header?: string;
-  /** Lockup size. Default 34. */
+  /** Lockup size. Default 30. */
   size?: number;
   className?: string;
   style?: React.CSSProperties;

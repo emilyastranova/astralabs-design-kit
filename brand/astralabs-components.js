@@ -160,12 +160,25 @@
   }
 
   /* ---------- AssetTag ---------- */
+  /* Code 128 (set B), so a tag's barcode is the real, scannable ID. Bar and space widths per symbol; 106 is the stop. */
+  var C128 = '212222 222122 222221 121223 121322 131222 122213 122312 132212 221213 221312 231212 112232 122132 122231 113222 123122 123221 223211 221132 221231 213212 223112 312131 311222 321122 321221 312212 322112 322211 212123 212321 232121 111323 131123 131321 112313 132113 132311 211313 231113 231311 112133 112331 132131 113123 113321 133121 313121 211331 231131 213113 213311 213131 311123 311321 331121 312113 312311 332111 314111 221411 431111 111224 111422 121124 121421 141122 141221 112214 112412 122114 122411 142112 142211 241211 221114 413111 241112 134111 111242 121142 121241 114212 124112 124211 411212 421112 421211 212141 214121 412121 111143 111341 131141 114113 114311 411113 411311 113141 114131 311141 411131 211412 211214 211232 2331112'.split(' ');
+  function code128(text) {
+    var codes = [104], sum = 104;
+    for (var i = 0; i < text.length; i++) { var v = text.charCodeAt(i) - 32; codes.push(v); sum += v * (i + 1); }
+    codes.push(sum % 103, 106);
+    var widths = codes.map(function (c) { return C128[c]; }).join(''), runs = [], x = 10;
+    for (var j = 0; j < widths.length; j++) { var w = +widths[j]; if (j % 2 === 0) runs.push([x, w]); x += w; }
+    return { runs: runs, modules: x + 10 };  // 10-module quiet zone each side
+  }
+
   function AssetTag(props) {
-    var id = props.id || 'AL-0451';
+    var id = props.id || 'AL-0451-NODE02', bc = code128(id);
+    var d = bc.runs.map(function (r) { return 'M' + r[0] + ' 0h' + r[1] + 'v1h-' + r[1] + 'z'; }).join('');
     return h('div', { className: cx('al-tag', props.className), style: props.style },
-      h('div', { className: 'al-tag-bar' }, h('span', null, props.header || 'Property of'), h('span', null, id)),
-      h('div', { className: 'al-tag-body' }, h(Lockup, { size: props.size || 34, interactive: false })),
-      h('div', { className: 'al-tag-foot' }, h('div', { className: 'al-hazard' }), h('div', { className: 'al-barcode', 'aria-hidden': true }, bars(id, 24))));
+      h('div', { className: 'al-tag-head' }, props.header || 'Property of'),
+      h(Lockup, { size: props.size || 30, interactive: false }),
+      h('svg', { className: 'al-tag-code', viewBox: '0 0 ' + bc.modules + ' 1', preserveAspectRatio: 'none', role: 'img', 'aria-label': 'Code 128 barcode for ' + id }, h('path', { d: d })),
+      h('div', { className: 'al-tag-id' }, id));
   }
 
   /* ---------- FocusFrame ---------- */

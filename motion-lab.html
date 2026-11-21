@@ -1,7 +1,7 @@
 <title>AstraLabs Motion Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap">
 <style>
 /* Layout: storyboard (16:9 stage + shot list + timeline), then the motion profiles plotted on dot grids, then a contact sheet of concepts. Line markers and masked dot grids carry the detail. Dark-only by design. */
 :root {
@@ -9,7 +9,7 @@
   --void: #0a0909; --plate: #131212; --rule: #2c2a29; --rule-subtle: #1c1b1a;
   --mark: #ffffff; --bone: #ede6e1; --ash: #8e8380; --acid: #b6ff2e; --acid-hi: #ccff6b; --on-acid: #0a0909; --down: #ff2e3a; --ok: #4dff88; --warn: #ffa21f;
   --dot: color-mix(in oklab, var(--bone) 22%, transparent);
-  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-display: "Chakra Petch", system-ui, sans-serif;
   --font-mono: "Martian Mono", ui-monospace, Menlo, monospace;
   --gutter: clamp(16px, 4vw, 48px);
 }
@@ -25,12 +25,12 @@ button { font: inherit; color: inherit; }
 .label b { color: var(--acid); font-weight: 500; }
 .wrap { max-width: 1280px; margin: 0 auto; padding-inline: var(--gutter); padding-block: 40px 120px; display: grid; gap: 88px; }
 .intro { display: grid; gap: 16px; }
-.intro h1 { font: 900 clamp(38px, 6vw, 72px)/.9 var(--font-display); font-variation-settings: "wdth" 118; text-transform: uppercase; color: var(--mark); letter-spacing: -.01em; }
+.intro h1 { font: 700 clamp(38px, 6vw, 72px)/.9 var(--font-display); text-transform: uppercase; color: var(--mark); letter-spacing: -.01em; }
 .intro p { color: var(--ash); font-size: 16px; }
 .intro strong { color: var(--bone); font-weight: 600; }
 .sec-head { display: grid; gap: 10px; margin-bottom: 22px; }
 .sec-head .t { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; }
-.sec-head h2 { font: 800 22px/1.15 var(--font-display); font-variation-settings: "wdth" 110; text-transform: uppercase; letter-spacing: .02em; }
+.sec-head h2 { font: 700 22px/1.15 var(--font-display); text-transform: uppercase; letter-spacing: .02em; }
 .sec-head p { color: var(--ash); font-size: 14px; }
 .mrule { position: relative; height: 9px; border-bottom: 1px solid var(--rule); }
 .mrule::before, .mrule::after { content: ""; position: absolute; bottom: -1px; width: 1px; height: 9px; background: var(--ash); }
@@ -108,7 +108,7 @@ button { font: inherit; color: inherit; }
 /* ---------- profiles ---------- */
 .profiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
 .prof { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 16px; display: grid; gap: 12px; align-content: start; min-width: 0; }
-.prof h3 { font: 800 18px/1 var(--font-display); font-variation-settings: "wdth" 108; text-transform: uppercase; }
+.prof h3 { font: 700 18px/1 var(--font-display); text-transform: uppercase; }
 .prof .head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .plot { position: relative; aspect-ratio: 4 / 3; }
 .plot .dots { position: absolute; inset: 0; background-size: 12px 12px; }
@@ -141,7 +141,7 @@ button { font: inherit; color: inherit; }
 .sheet { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
 .card { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 16px; display: grid; gap: 12px; align-content: start; min-width: 0; }
 .card .head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-.card h3 { font: 800 17px/1.15 var(--font-display); font-variation-settings: "wdth" 106; text-transform: uppercase; }
+.card h3 { font: 700 17px/1.15 var(--font-display); text-transform: uppercase; }
 .cat { font: 500 9.5px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ash); white-space: nowrap; }
 .cat::before { content: "■ "; color: var(--acid); }
 .stage { position: relative; aspect-ratio: 16 / 10; background-color: var(--void); overflow: hidden; display: grid; place-items: center; }
@@ -199,11 +199,13 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
 .survey .r i { flex: 1; border-bottom: 1px dotted var(--rule); transform: translateY(-3px); }
 .survey .r b { color: var(--bone); font-weight: 400; }
 .survey .line { position: absolute; left: -6%; right: -6%; height: 1px; background: var(--bone); top: 0; opacity: 0; }
-.tag { width: 70%; display: grid; }
-.tag .bar { display: flex; justify-content: space-between; background: var(--acid); color: var(--on-acid); padding: 4px 7px; font: 800 9px/1 var(--font-display); font-variation-settings: "wdth" 75; letter-spacing: .16em; text-transform: uppercase; }
-.tag .body { border: 1px solid var(--bone); border-top: 0; padding: 10px; }
-.tag .body .lock { font-size: 22px; }
-.tag .foot { height: 14px; border: 1px solid var(--bone); border-top: 0; background: repeating-linear-gradient(120deg, var(--acid) 0 6px, transparent 6px 12px); }
+/* decal stamp: the AssetTag. "Property of", the full lockup, then the barcode at full width with the ID under it */
+.tag { width: 56%; display: grid; gap: 8px; padding: 10px 12px 8px; background: var(--void); border: 1px solid var(--rule); }
+.tag .hd { font: 500 9px/1.3 var(--font-mono); font-variation-settings: "wdth" 85; letter-spacing: .14em; text-transform: uppercase; color: var(--ash); }
+.tag .lk { display: block; font-size: 15px; white-space: nowrap; }
+.tag .bars { display: block; width: 100%; height: 38px; background: var(--bone); }
+.tag .bars path { fill: var(--void); }
+.tag .num { font: 400 9px/1 var(--font-mono); font-variation-settings: "wdth" 85; font-variant-numeric: tabular-nums; letter-spacing: .24em; color: var(--bone); text-align: center; }
 .net .edge { stroke: var(--bone); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; stroke-dasharray: 1; }
 .net .node { fill: var(--plate); stroke: var(--bone); stroke-width: 1; vector-effect: non-scaling-stroke; }
 .net .pk { fill: var(--acid); }
@@ -212,6 +214,38 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
 .leader .ld { stroke: var(--bone); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; }
 .leader .pt { fill: var(--acid); }
 .leader .lbl { position: absolute; font: 400 10px/1.4 var(--font-mono); color: var(--bone); letter-spacing: .06em; }
+/* line work concepts */
+.route { width: 94%; height: auto; }
+.route .rt { stroke: var(--bone); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; stroke-dasharray: 1; }
+.route .org { fill: var(--acid); }
+.route .nd { fill: var(--bone); }
+.route .tm { fill: var(--bone); transform-box: fill-box; transform-origin: center; }
+.route circle.tm { fill: none; stroke: var(--bone); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.route text, .rampm text, .tickd text.l { font: 400 9px var(--font-mono); fill: var(--ash); letter-spacing: .08em; }
+.rampm { width: 94%; height: auto; }
+.rampm .rc { fill: var(--bone); }
+.rampm .rc.lead { fill: var(--acid); }
+.rampm .ax { stroke: var(--rule); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.rampm .qt { stroke: var(--ash); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.rampm .thr line { stroke: var(--bone); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.rampm .thr polygon { fill: var(--bone); }
+.rampm text.v { fill: var(--bone); font-size: 10px; }
+.tickd { width: 80%; height: auto; }
+.tickd .ring { fill: none; stroke: var(--rule); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.tickd .tk { stroke: var(--rule); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.tickd .tk.on { stroke: var(--bone); }
+.tickd .qm { stroke: var(--bone); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.tickd .ix { stroke: var(--acid); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.tickd text.n { font: 300 30px var(--font-mono); fill: var(--bone); font-variant-numeric: tabular-nums; }
+.tickd text.u { font: 400 13px var(--font-mono); fill: var(--ash); }
+.dslv { position: relative; width: 76%; height: 64px; }
+.dslv .ln { position: absolute; left: 0; top: 40px; height: 1px; width: 54%; background: color-mix(in oklab, var(--bone) 55%, transparent); }
+.dslv .tk { position: absolute; left: 0; top: 35px; width: 1px; height: 11px; background: var(--ash); }
+.dslv .ix { position: absolute; left: 0; top: 40px; width: 32px; height: 1px; background: var(--acid); }
+.dslv .sq { position: absolute; background: var(--bone); }
+.dslv .label { position: absolute; left: 0; top: 0; }
+.ht { position: absolute; inset: 0; }
+.ht span { position: absolute; background: var(--bone); }
 .leader .lbl small { display: block; color: var(--ash); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
 .corner-panel { width: 62%; height: 54%; position: relative; background: var(--plate); display: grid; place-items: center; align-content: center; gap: 4px; }
 .corner-panel .v { font: 300 24px var(--font-mono); color: var(--bone); }
@@ -313,9 +347,9 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
 
 <main class="wrap">
   <section class="intro">
-    <span class="label"><b>■</b> AstraLabs / Motion lab / round 02</span>
+    <span class="label"><b>■</b> AstraLabs / Motion lab</span>
     <h1>Motion Lab</h1>
-    <p>Motion for AstraLabs should feel like a precise instrument, with the occasional mechanical hiccup. Everything here is built from <strong>four speeds and three patterns</strong>, plotted below so the timing is exact. A new intro storyboard follows the reboot sequence from exploration 03. <span id="rm-note" hidden><strong>Reduced motion is on</strong>, so stages show their final frame.</span></p>
+    <p>Motion for AstraLabs should feel like a precise instrument, with the occasional mechanical hiccup. Everything here is built from <strong>four speeds and three patterns</strong>, plotted below so the timing is exact. The intro storyboard below plays the reboot sequence. <span id="rm-note" hidden><strong>Reduced motion is on</strong>, so stages show their final frame.</span></p>
     <div class="mrule"><i></i></div>
   </section>
 
@@ -341,7 +375,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
 
   <!-- ===================== DOT FIELD IDLE ===================== -->
   <section>
-    <div class="sec-head"><div class="t"><h2>Dot field · idle</h2><span class="label">After ignition · runs continuously</span></div><div class="mrule"><i></i></div><p>Ignition stays exactly as it is. Once the ring settles, the idle field takes over from the same resting frame and keeps the surface quietly alive. The dots never move. Only their grey shifts up and down, following a slow height field like ocean swell seen from above.</p></div>
+    <div class="sec-head"><div class="t"><h2>Dot field · idle</h2><span class="label">After ignition · runs continuously</span></div><div class="mrule"><i></i></div><p>Ignition stays exactly as it is. Once the ring settles, the idle field takes over from the same resting frame and keeps the surface quietly alive. The dots never move. Only their gray shifts up and down, following a slow height field like ocean swell seen from above.</p></div>
     <div class="glx">
       <div class="glx-stage ticks" style="aspect-ratio:16/8"><canvas id="idle-canvas" aria-label="Idle dot field demo" style="position:absolute;inset:0;width:100%;height:100%"></canvas><div style="position:absolute;inset:0;display:grid;place-items:center;pointer-events:none"><span style="font-size:40px">__LOCK__</span></div><span class="glx-read label" id="idle-read">Sea · amount 1</span></div>
       <div class="glx-ctl">
@@ -436,7 +470,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
   const I = 'M114.32 519.62 L300 198 L338.11 264 L228.63 453.62 L561.89 453.62 L600 519.62 Z';
   /* the four speeds */
   const P = {
-    flick:  { name: 'Flick',  dur: 40,  css: 'steps(1, end)', bez: null, feel: 'A hard cut. One frame on, one frame off.', use: 'Strobes, glitch slices, status blinks, hover colour swaps.' },
+    flick:  { name: 'Flick',  dur: 40,  css: 'steps(1, end)', bez: null, feel: 'A hard cut. One frame on, one frame off.', use: 'Strobes, glitch slices, status blinks, hover color swaps.' },
     snap:   { name: 'Snap',   dur: 200, css: 'cubic-bezier(.3, 1.35, .5, 1)', bez: [.3, 1.35, .5, 1], feel: 'A servo: fast, a small overshoot, settles. Never bouncy.', use: 'Bracket snaps, toggles, indicators sliding, focus locking on.' },
     trace:  { name: 'Trace',  dur: 900, css: 'cubic-bezier(.7, 0, .2, 1)', bez: [.7, 0, .2, 1], feel: 'Winds up, commits, then lands precisely. A plotter arm.', use: 'Lines drawing on, meters filling, scans, wipes across a frame.' },
     settle: { name: 'Settle', dur: 360, css: 'cubic-bezier(.16, 1, .3, 1)', bez: [.16, 1, .3, 1], feel: 'Arrives instantly and decelerates for a long time.', use: 'Anything you read: text, panels, toasts, mask wipes in.' },
@@ -510,7 +544,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
 
   /* ================= STORYBOARD: reboot intro ================= */
   const SHOTS = [
-    [0.00, 'Dot field', 'The unlit dot grid holds for a beat, then ignites from the mark in an acid ring, settles, and hands over to the Sea idle field.'],
+    [0.00, 'Dot field', 'The unlit dot grid holds for a beat, then ignites from the center in an acid ring, settles, and hands over to the Sea idle field.'],
     [1.30, 'Trace', 'The mark\'s outline plots itself in bone on the Trace curve.'],
     [2.05, 'Fill', 'The fill flickers on like a fluorescent tube: two false starts, then a hold.'],
     [2.80, 'Slice', 'One slice glitch in acid and bone. The only grit in the piece.'],
@@ -536,7 +570,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
       x.fillRect(gx - .75, gy - .75, 1.5, 1.5);
     }
   }
-  // hold the unlit grid, then ignite on an ease-in-out so the ring is seen leaving the centre
+  // hold the unlit grid, then ignite on an ease-in-out so the ring is seen leaving the center
   const IGN_HOLD = 450, IGN_DUR = 1300;
   function ignite(c, live, ox, oy) {
     const t0 = performance.now();
@@ -559,7 +593,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
     clock();
     const at = async s => { const d = s * 1000 - (performance.now() - t0); if (d > 0) await wait(d); return live(); };
     // 0.00 dot field
-    { const sr = scr.getBoundingClientRect(), mr = $('.mk', gw).getBoundingClientRect(); sbIdle.stop(); ignite($('#sb-field'), live, (mr.left - sr.left + mr.width / 2) / sr.width, (mr.top - sr.top + mr.height * .62) / sr.height); setTimeout(() => { if (live()) { sbIdle.resize(); sbIdle.start(true); } }, IGN_HOLD + IGN_DUR + 30); }
+    { sbIdle.stop(); ignite($('#sb-field'), live, .5, .5); setTimeout(() => { if (live()) { sbIdle.resize(); sbIdle.start(true); } }, IGN_HOLD + IGN_DUR + 30); }
     $$('.reg', scr).forEach(r => r.style.opacity = 0);
     // 0.80 trace
     if (!await at(1.3)) return;
@@ -646,7 +680,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
       const mk = () => { const t = document.createElement('canvas'); t.width = this.W; t.height = this.H; return t; };
       this.src = mk(); this.src.getContext('2d').drawImage(this.img, Math.round((this.W - w) / 2), Math.round((this.H - h) / 2), w, h);
       this.tint = {};
-      for (const [k, col] of Object.entries(FRINGE)) { const t = mk(), tx = t.getContext('2d'); tx.drawImage(this.src, 0, 0); tx.globalCompositeOperation = 'multiply'; tx.fillStyle = col; tx.fillRect(0, 0, this.W, this.H); tx.globalCompositeOperation = 'destination-in'; tx.drawImage(this.src, 0, 0); this.tint[k] = t; }  // each channel keeps the source's own colour, so R+G+B rebuilds acid as acid
+      for (const [k, col] of Object.entries(FRINGE)) { const t = mk(), tx = t.getContext('2d'); tx.drawImage(this.src, 0, 0); tx.globalCompositeOperation = 'multiply'; tx.fillStyle = col; tx.fillRect(0, 0, this.W, this.H); tx.globalCompositeOperation = 'destination-in'; tx.drawImage(this.src, 0, 0); this.tint[k] = t; }  // each channel keeps the source's own color, so R+G+B rebuilds acid as acid
       this.clean();
     }
     clean() { this.x.clearRect(0, 0, this.W, this.H); this.x.drawImage(this.src, 0, 0); }
@@ -660,7 +694,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
       const draw = (img, ox) => { if (!rows) return x.drawImage(img, ox + jx, jy); for (const [y, h, off] of rows) if (h > 0) x.drawImage(img, 0, y, W, h, ox + jx + off, y + jy, W, h); };
       x.globalAlpha = fx.dropout && Math.random() < .3 + .3 * k ? R2(.15, .5) : 1;
       if (fx.ca) {
-        // red drifts right, blue left, green stays near centre: 1–3px, then a softening pass of the clean image so fringes stay faint
+        // red drifts right, blue left, green stays near center: 1–3px, then a softening pass of the clean image so fringes stay faint
         const ca = Math.max(1, Math.round(R2(.6, 2.6) * k)) * d, a0 = x.globalAlpha;
         x.globalCompositeOperation = 'lighter';
         draw(this.tint.r, ca); draw(this.tint.g, Math.round(R2(-.4, .4) * ca)); draw(this.tint.b, -ca);
@@ -712,7 +746,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
 
   /* ================= LIVE CHARTS (SVG) =================
      Single series use brand Acid. Multi-series use the validated chart palette (dark band, CVD-checked):
-     s1 #70a600 · s2 #0486d3 · s3 #c13b9f · other #5a5452. Status colours only ever mean status. */
+     s1 #70a600 · s2 #0486d3 · s3 #c13b9f · other #5a5452. Status colors only ever mean status. */
   const CH = { surface: '#0a0909', acid: '#b6ff2e', s1: '#70a600', s2: '#0486d3', s3: '#c13b9f', other: '#5a5452', ok: '#4dff88', warn: '#ffa21f', down: '#ff2e3a', bone: '#ede6e1', ash: '#8e8380' };
   const svgN = (tag, attrs = {}, parent) => { const n = document.createElementNS('http://www.w3.org/2000/svg', tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; };
   const niceStep = (max, n = 4) => { const raw = Math.max(max, 1e-6) / n, p = 10 ** Math.floor(Math.log10(raw)), f = raw / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; };
@@ -919,7 +953,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
     host.querySelectorAll('.mk-bar').forEach(p => { p.addEventListener('pointerenter', () => { const b = bins[+p.dataset.i], bb = p.getBBox(); showTip(tt, host, bb.x + bb.width, bb.y, `<span class="h">${b.lo}–${b.hi} ms</span><span class="r"><span>requests</span><b>${nf(b.c)}</b></span>`); }); p.addEventListener('pointerleave', () => tt.hidden = true); });
   }
 
-  /* --- static: 90-day status strip (status colours carry a shape in the legend and a word in the tooltip) --- */
+  /* --- static: 90-day status strip (status colors carry a shape in the legend and a word in the tooltip) --- */
   function uptimeChart(host, days) {
     const W = Math.max(240, host.clientWidth), H = 46, n = days.length, gap = 2, bw = (W - gap * (n - 1)) / n;
     let s = `<svg viewBox="0 0 ${W} ${H}" height="${H}" role="img" aria-label="90 day uptime">`;
@@ -944,13 +978,13 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
 
 
   /* ================= DOT FIELD · IDLE (Sea) =================
-     Runs after ignition. The dots never move. Their grey shifts very slightly with a slow height field,
+     Runs after ignition. The dots never move. Their gray shifts very slightly with a slow height field,
      like ocean swell seen from straight above: a few long waves crossing at different angles and speeds,
-     summed so they interfere. Greys only, about ±14% around the resting brightness. */
+     summed so they interfere. Grays only, about ±14% around the resting brightness. */
   const SEA_WAVES = [  // wavelength px, direction deg, speed px/s, weight
     [620, 18, 9, .34], [430, 112, 7, .26], [300, 205, 11, .2], [760, 290, 6, .2],
   ].map(([l, deg, v, w], i) => { const a = deg * Math.PI / 180; return { kx: Math.cos(a) * 2 * Math.PI / l, ky: Math.sin(a) * 2 * Math.PI / l, w: v * 2 * Math.PI / l, a: w, p: i * 1.7 }; });
-  const FIELD_MODES = { sea: { name: 'Sea', desc: 'The dots stay still. Their grey rises and falls by about 14% with a slow height field, like ocean swell seen from above: four long waves at different angles and speeds, crossing and interfering.' } };
+  const FIELD_MODES = { sea: { name: 'Sea', desc: 'The dots stay still. Their gray rises and falls by about 14% with a slow height field, like ocean swell seen from above: four long waves at different angles and speeds, crossing and interfering.' } };
   function fieldIdle(canvas, o = {}) {
     const st = { k: o.k == null ? 1 : o.k, origin: o.origin || null, ramp: 0, running: false, raf: 0, t0: performance.now(), visible: true };
     const reduceF = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -964,7 +998,7 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
       const [cx, cy] = pos(), max = Math.max(Math.hypot(cx, cy), Math.hypot(W - cx, cy), Math.hypot(cx, H - cy), Math.hypot(W - cx, H - cy));
       for (let gx = 8; gx < W; gx += 14) for (let gy = 8; gy < H; gy += 14) {
         let h = 0; for (const w of SEA_WAVES) h += w.a * Math.sin(gx * w.kx + gy * w.ky - t * w.w + w.p);
-        const rest = .12 + Math.max(0, 1 - Math.hypot(gx - cx, gy - cy) / max) * .2;   // same resting grey as the end of ignition
+        const rest = .12 + Math.max(0, 1 - Math.hypot(gx - cx, gy - cy) / max) * .2;   // same resting gray as the end of ignition
         ctx.fillStyle = `rgba(237,230,225,${Math.max(.04, rest + h * amp).toFixed(3)})`;
         ctx.fillRect(gx - .75, gy - .75, 1.5, 1.5);
       }
@@ -982,24 +1016,24 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
 
   /* ---------- dot field idle: demo stage ---------- */
   $('#idle-canvas').parentElement.querySelector('span[style*="font-size:40px"]').innerHTML = lockHTML();
-  const idleDemo = fieldIdle($('#idle-canvas'), { k: 1, origin: () => { const m = $('#idle-canvas').parentElement.querySelector('.mk').getBoundingClientRect(); return { x: m.left + m.width / 2, y: m.top + m.height * .62 }; } });
+  const idleDemo = fieldIdle($('#idle-canvas'), { k: 1 });
   $('#idle-modes').innerHTML = Object.entries(FIELD_MODES).map(([k, v]) => `<button class="chip" type="button" data-m="${k}" aria-pressed="true">${v.name}</button>`).join('');
   const idleSet = m => { $('#idle-desc').textContent = FIELD_MODES[m].desc; };
   $('#idle-modes').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) idleSet(c.dataset.m); });
   $('#idle-k').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('#idle-k button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); idleDemo.set({ k: +b.dataset.k }); $('#idle-read').textContent = 'Sea · amount ' + b.dataset.k; });
   let idleTok = 0;
-  $('#idle-reignite').addEventListener('click', () => { const t = ++idleTok, c = $('#idle-canvas'), m = c.parentElement.querySelector('.mk').getBoundingClientRect(), r = c.getBoundingClientRect(); idleDemo.stop(); ignite(c, () => t === idleTok, (m.left - r.left + m.width / 2) / r.width, (m.top - r.top + m.height * .62) / r.height); setTimeout(() => { if (t === idleTok) { idleDemo.resize(); idleDemo.start(true); } }, IGN_HOLD + IGN_DUR + 30); });
+  $('#idle-reignite').addEventListener('click', () => { const t = ++idleTok, c = $('#idle-canvas'); idleDemo.stop(); ignite(c, () => t === idleTok, .5, .5); setTimeout(() => { if (t === idleTok) { idleDemo.resize(); idleDemo.start(true); } }, IGN_HOLD + IGN_DUR + 30); });
   idleSet('sea'); idleDemo.start(false);
 
   // storyboard background: the same Sea idle field that follows ignition on the login
-  const sbIdle = fieldIdle($('#sb-field'), { k: 1, origin: () => { const m = $('.mk', $('#sb-gw')).getBoundingClientRect(); return { x: m.left + m.width / 2, y: m.top + m.height * .62 }; } });
+  const sbIdle = fieldIdle($('#sb-field'), { k: 1 });
   sbIdle.start(false);
 
   /* ================= CONCEPTS ================= */
   const C = [
     { id: 'field', name: 'Dot field ignition', cat: 'Intro', dur: '1.75s', use: 'The first beat of videos and the login boot screen.',
-      css: 'Canvas dot grid. The unlit grid holds for 450ms, then a ring expands from the centre over 1.3s on a cubic ease-in-out, lighting its dots acid and leaving them at rest brightness.', ae: 'Grid of dots via Repeater; a radial mask with a keyed radius; a second brighter copy masked to a thin ring.',
-      desc: 'The dot grid powers on from the centre in a ring, then settles to its quiet level. The mark strobes on at the origin.',
+      css: 'Canvas dot grid. The unlit grid holds for 450ms, then a ring expands from the center over 1.3s on a cubic ease-in-out, lighting its dots acid and leaving them at rest brightness.', ae: 'Grid of dots via Repeater; a radial mask with a keyed radius; a second brighter copy masked to a thin ring.',
+      desc: 'The dot grid powers on from the center in a ring, then settles to its quiet level. The mark strobes on at the origin.',
       init(s) { s.innerHTML = `<canvas class="fill"></canvas><div class="s-mk" style="position:absolute">${markSVG('58px')}</div>`; this.draw(s, 1); },
       draw(s, p) { drawField($('canvas', s), p); },
       async run(s, live) { ignite($('canvas', s), live); $('.fl', s).animate(TUBE, { duration: 700, delay: IGN_HOLD + 700, fill: 'backwards' }); } },
@@ -1027,8 +1061,8 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
         lk.style.visibility = ''; if (live()) enter(lk);
       } },
     { id: 'bwipe', name: 'Bracket wipe', cat: 'Transition', dur: '0.6s', use: 'Page and scene changes. The signature transition.',
-      css: 'Bracket lines move from centre to the edges on Settle; the incoming view is clipped inset(0 50%) → inset(0) in sync.', ae: 'Track matte the incoming comp with a rectangle whose width follows the brackets.',
-      desc: 'The wordmark\'s brackets open from the centre to the edges and carry the next view in between them.',
+      css: 'Bracket lines move from center to the edges on Settle; the incoming view is clipped inset(0 50%) → inset(0) in sync.', ae: 'Track matte the incoming comp with a rectangle whose width follows the brackets.',
+      desc: 'The wordmark\'s brackets open from the center to the edges and carry the next view in between them.',
       init(s) { s.innerHTML = `<div class="panel-x a"><span class="label">/astra/labs/grid</span><span class="big">12 / 14</span><span class="label">services up</span></div><div class="panel-x b" style="clip-path:inset(0 50% 0 50%)"><span class="label">/astra/labs/vault</span><span class="big">2</span><span class="label">active sessions</span></div><span class="bracket-v l" style="left:calc(50% - 12px);opacity:0"></span><span class="bracket-v r" style="left:50%;opacity:0"></span>`; s._f = false; },
       async run(s) { const a = $('.a', s), b = $('.b', s); if (s._f) [a.innerHTML, b.innerHTML] = [b.innerHTML, a.innerHTML]; s._f = !s._f; const o = { duration: 600, easing: SETTLE, fill: 'forwards' };
         strobe($('.l', s)); strobe($('.r', s));
@@ -1145,11 +1179,60 @@ canvas.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
         lk.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 80, delay: 120, easing: 'steps(1,end)', fill: 'forwards' }); await wait(220);
         await dot.animate(hard([{ opacity: 1 }, { opacity: 0, offset: .25 }, { opacity: 1, offset: .5 }, { opacity: 0, offset: .75 }, { opacity: 0 }]), { duration: 640 }).finished.catch(() => {});
         await wait(500); if (!live()) return; s.innerHTML = ''; this.init(s); enter($('.lk', s)); } },
-    { id: 'stamp', name: 'Decal stamp', cat: 'Outro', dur: '0.4s', use: 'Sticker loops, merch posts, the sign-off at the end of a video.',
-      css: 'The asset tag scales 1.12 → 1 on Snap, perfectly level, with the hazard foot wiping in after contact.', ae: 'Scale with a small overshoot graph; a 2-frame acid fill on impact; no rotation.',
-      desc: 'The asset tag presses onto the frame, square and level, and the hazard stripe runs out along its foot.',
-      init(s) { s.innerHTML = `<div class="tag"><div class="bar"><span>Property of</span><span>AL-0451</span></div><div class="body">${lockHTML()}</div><div class="foot"></div></div>`; },
-      async run(s) { const t = $('.tag', s); t.animate([{ transform: 'scale(1.12)', opacity: 0 }, { opacity: 1, offset: .3 }, { transform: 'scale(1)', opacity: 1 }], { duration: 280, easing: SNAP, fill: 'backwards' }); strobe($('.bar', t), 240); wipe($('.foot', t), 280); } },
+    { id: 'stamp', name: 'Decal stamp', cat: 'Outro', dur: '0.8s', use: 'Sticker loops, merch posts, the sign-off at the end of a video.',
+      css: 'The asset tag scales 1.12 → 1 on Snap, perfectly level; after contact the barcode scans in left to right on Settle and the ID strobes on beneath it.', ae: 'Scale with a small overshoot graph and no rotation; a left-to-right mask on the barcode two frames after impact; the serial on stepped opacity.',
+      desc: 'The asset tag presses onto the frame, square and level: Property of, the lockup, then a full-width barcode that scans in after contact, with the ID it encodes strobing on underneath.',
+      init(s) {
+        // Code 128 for AL-0451-NODE02: [start module, width] of each dark bar; 10-module quiet zone each side, 209 in all
+        const runs = [[0,2],[3,1],[6,1],[11,1],[13,1],[17,2],[22,1],[26,2],[29,3],[33,1],[36,2],[39,3],[44,1],[46,3],[50,4],[55,1],[58,1],[62,2],[66,2],[69,3],[73,1],[77,1],[79,4],[84,3],[88,1],[91,2],[94,3],[99,1],[101,3],[107,2],[110,1],[114,3],[118,2],[121,1],[123,2],[128,1],[132,1],[136,2],[139,1],[143,1],[146,3],[150,2],[154,2],[158,3],[163,1],[165,3],[169,4],[174,1],[176,2],[181,3],[185,1],[187,2]];
+        const bars = runs.map(([x, w]) => `M${10 + x} 0h${w}v40h-${w}z`).join('');
+        s.innerHTML = `<div class="tag"><span class="hd">Property of</span><span class="lk">${lockHTML()}</span><svg class="bars" viewBox="0 0 209 40" preserveAspectRatio="none" role="img" aria-label="Code 128 barcode for AL-0451-NODE02"><path d="${bars}"/></svg><span class="num">AL-0451-NODE02</span></div>`; },
+      async run(s) { const t = $('.tag', s); t.animate([{ transform: 'scale(1.12)', opacity: 0 }, { opacity: 1, offset: .3 }, { transform: 'scale(1)', opacity: 1 }], { duration: 280, easing: SNAP, fill: 'backwards' }); wipe($('.bars', t), 260); strobe($('.num', t), 560); } },
+    { id: 'route', name: 'Route trace', cat: 'Markers', dur: '1.2s', use: 'Topology maps, service diagrams and explainers that show what talks to what.',
+      css: 'One routed path per branch, every bend at 60°. Each plots on with stroke-dashoffset (Trace); nodes strobe as the line reaches them; terminals snap in at the ends.', ae: 'Trim Paths per branch; node and terminal layers keyed to the trim progress; Snap overshoot on terminal Scale.',
+      desc: 'A schematic plots out from its origin and turns only at the mark\'s angle. Nodes light as the line passes and each branch lands on its terminal: a ring for a host, a triangle for a gateway, a square for a service.',
+      init(s) { s.innerHTML = `<svg class="route" viewBox="0 0 400 250" aria-hidden="true"><path class="rt r1" pathLength="1" d="M60 190H140L180 120.7H320"/><path class="rt r2" pathLength="1" d="M140 190H320"/><path class="rt r3" pathLength="1" d="M180 120.7L210 68.7H320"/><rect class="org" x="54" y="186" width="9" height="8"/><circle class="nd n1" cx="140" cy="190" r="3"/><circle class="nd n2" cx="180" cy="120.7" r="3"/><circle class="tm t1" cx="326" cy="120.7" r="5"/><polygon class="tm t2" points="321,195 331,195 326,186.3"/><rect class="tm t3" x="321" y="64.7" width="10" height="8"/><text x="340" y="123.7">node-02</text><text x="340" y="193">router</text><text x="340" y="71.7">gitea</text></svg>`; },
+      async run(s) { const tr = (sel, d, dur) => $(sel, s).animate([{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: dur, delay: d, easing: TRACE, fill: 'backwards' });
+        strobe($('.org', s)); tr('.r1', 120, 900); tr('.r2', 420, 640); tr('.r3', 640, 520); strobe($('.n1', s), 380); strobe($('.n2', s), 600);
+        [['.t1', 1020], ['.t2', 1060], ['.t3', 1160]].forEach(([t, d]) => $(t, s).animate([{ transform: 'scale(.4)', opacity: 0 }, { opacity: 1, offset: .2 }, { transform: 'scale(1)', opacity: 1 }], { duration: 200, delay: d, easing: SNAP, fill: 'backwards' })); } },
+    { id: 'ramp', name: 'Ramp fill', cat: 'Data', dur: '0.9s', use: 'Storage, quota and capacity meters arriving with a real value.',
+      css: 'Cells switch on one per frame at Flick (40ms) up to the value; the acid leading cell comes last; the ramp tail strobes on behind it; the threshold marker snaps down.', ae: 'A Repeater of squares with an Opacity hold key per copy, one frame apart; threshold Position on Snap.',
+      desc: 'A meter made of cells counts up one cell per frame to its value, lands on the acid leading edge, then falls away to dots. The threshold marker drops in last.',
+      init(s) { const k = 16, TAIL = [6.5, 5, 4, 3, 2.5, 2, 1.5]; let c = '';
+        for (let i = 0; i < k + TAIL.length; i++) { const x = 50 + i * 13, sz = i < k ? 10 : TAIL[i - k]; c += `<rect class="rc${i === k - 1 ? ' lead' : ''}${i >= k ? ' tl' : ''}" x="${(x - sz / 2).toFixed(2)}" y="${(130 - sz / 2).toFixed(2)}" width="${sz}" height="${sz}"/>`; }
+        s.innerHTML = `<svg class="rampm" viewBox="0 0 400 250" aria-hidden="true"><text x="44" y="100">POOL-A</text><text class="v" x="356" y="100" text-anchor="end">2.72 / 4.00 TB</text>${c}<g class="thr"><line x1="310.5" y1="116" x2="310.5" y2="146"/><polygon points="305.5,108 315.5,108 310.5,116.7"/></g><line class="ax" x1="44" y1="156.5" x2="356" y2="156.5"/>${[44, 122, 200, 278, 356].map(x => `<line class="qt" x1="${x + .5}" y1="152" x2="${x + .5}" y2="161"/>`).join('')}</svg>`; },
+      async run(s) { const cells = $$('.rc:not(.tl)', s), tail = $$('.rc.tl', s), on = [{ opacity: 0 }, { opacity: 1 }];
+        cells.forEach((c, i) => c.animate(on, { duration: 40, delay: i * 40, easing: 'steps(1, end)', fill: 'backwards' }));
+        tail.forEach((c, i) => strobe(c, cells.length * 40 + i * 40));
+        $('.thr', s).animate([{ transform: 'translateY(-14px)', opacity: 0 }, { opacity: 1, offset: .2 }, { transform: 'none', opacity: 1 }], { duration: 200, delay: (cells.length + tail.length) * 40 + 60, easing: SNAP, fill: 'backwards' }); } },
+    { id: 'ticks', name: 'Tick sweep', cat: 'Data', dur: '1.1s', use: 'Gauge faces and dials: CPU, temperature, fan speed.',
+      css: 'Ticks light clockwise from the top, one per frame at Flick, up to the value; quarter markers stay lit; the acid index strobes on at the reading.', ae: 'Radial Repeater of ticks; per-copy Opacity hold keys one frame apart; the number counts on the same clock.',
+      desc: 'A radial scale counts up to its reading one tick at a time while the number climbs with it, then the acid index lands on the value.',
+      init(s) { const cx = 200, cy = 125, v = 26, f = n => n.toFixed(1); let t = '';
+        for (let i = 1; i < 36; i++) { const a = (i * 10 - 90) * Math.PI / 180, co = Math.cos(a), si = Math.sin(a);
+          if (i % 9 === 0) t += `<line class="qm" x1="${f(cx + co * 68)}" y1="${f(cy + si * 68)}" x2="${f(cx + co * 96)}" y2="${f(cy + si * 96)}"/>`;
+          else { const o = i % 3 === 0 ? 88 : 82; t += `<line class="tk${i <= v ? ' on' : ''}" data-i="${i}" x1="${f(cx + co * 74)}" y1="${f(cy + si * 74)}" x2="${f(cx + co * o)}" y2="${f(cy + si * o)}"/>`; } }
+        const a = (v * 10 - 90) * Math.PI / 180;
+        s.innerHTML = `<svg class="tickd" viewBox="0 0 400 250" aria-hidden="true"><circle class="ring" cx="${cx}" cy="${cy}" r="62"/>${t}<line class="ix" x1="${f(cx + Math.cos(a) * 64)}" y1="${f(cy + Math.sin(a) * 64)}" x2="${f(cx + Math.cos(a) * 100)}" y2="${f(cy + Math.sin(a) * 100)}"/><text class="n" x="${cx}" y="${cy + 8}" text-anchor="middle">72</text><text class="u" x="${cx + 30}" y="${cy + 8}">%</text><text class="l" x="${cx}" y="${cy + 28}" text-anchor="middle">CPU · NODE-02</text></svg>`; },
+      async run(s, live) { const tks = $$('.tk', s), n = $('.n', s), ix = $('.ix', s); tks.forEach(t => t.classList.remove('on')); ix.style.opacity = 0; n.textContent = '0';
+        for (let i = 1; i <= 26; i++) { if (!live()) return; const t = tks.find(x => +x.dataset.i === i); if (t) t.classList.add('on'); n.textContent = Math.round(i / 36 * 100); await wait(40); }
+        n.textContent = '72'; ix.style.opacity = ''; strobe(ix); } },
+    { id: 'dissolve', name: 'Dissolve', cat: 'Outro', dur: '0.8s', use: 'The end of a feed or log, a section closing, a service going away.',
+      css: 'The rule retracts on Trace while its tail steps into squares, one per frame at Flick, each smaller than the last as the gaps open.', ae: 'Trim Paths End keyed back on Trace; a Repeater of squares with Scale and Opacity hold keys one frame apart.',
+      desc: 'A measurement rule runs out of line and breaks into squares that shrink as the gaps between them open, like a signal fading out.',
+      init(s) { const SZ = [4.5, 4.5, 4, 3.5, 3, 3, 2.5, 2, 1.5, 1.5]; let x = 57, q = '';
+        SZ.forEach((z, i) => { q += `<i class="sq" style="left:${x.toFixed(1)}%;top:${(40.5 - z / 2).toFixed(2)}px;width:${z}px;height:${z}px"></i>`; x += 2.6 + i * .9; });
+        s.innerHTML = `<div class="dslv"><span class="label">gitea · end of log</span><i class="ln"></i><i class="tk"></i><i class="ix"></i>${q}</div>`; },
+      async run(s) { $('.ln', s).animate([{ width: '100%' }, { width: '54%' }], { duration: 640, easing: TRACE, fill: 'backwards' });
+        $$('.sq', s).forEach((q, i) => q.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 40, delay: 240 + i * 40, easing: 'steps(1, end)', fill: 'backwards' })); } },
+    { id: 'halftone', name: 'Halftone wipe', cat: 'Intro', dur: '0.9s', use: 'Revealing a hero, an empty state or a title card.',
+      css: 'A grid of square dots grows in behind a 60° front; each dot scales from 0 to its halftone size on Settle as the front passes, largest at the origin corner.', ae: 'A grid of squares whose Scale is driven by a Linear Wipe at 60° (or an expression on each dot\'s position).',
+      desc: 'A halftone field sweeps in at the mark\'s angle. The dots grow as the front passes, so the fade itself is what moves.',
+      init(s) { let d = '';
+        for (let c = 0; c < 16; c++) for (let r = 0; r < 10; r++) { const p = ((c / 15) * .5 + ((9 - r) / 9) * .866) / 1.366, z = +(12 - p * 11).toFixed(1); if (z < .8) continue;
+          d += `<span data-p="${p.toFixed(3)}" style="left:calc(${((c + .5) / 16 * 100).toFixed(2)}% - ${z / 2}px);top:calc(${((r + .5) / 10 * 100).toFixed(2)}% - ${z / 2}px);width:${z}px;height:${z}px"></span>`; }
+        s.innerHTML = `<div class="ht">${d}</div>`; },
+      async run(s) { $$('.ht span', s).forEach(e => e.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], { duration: 260, delay: +e.dataset.p * 700, easing: SETTLE, fill: 'backwards' })); } },
   ];
 
   const cats = ['All', ...new Set(C.map(c => c.cat))];
